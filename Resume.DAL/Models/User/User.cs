@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Resume.DAL.Models.User
 {
-    public class User : BaseEntity<long>
+    public class User : BaseEntity<int>
     {
         #region Properties
 

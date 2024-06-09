@@ -9,8 +9,6 @@
   <ItemGroup>
     <Folder Include="Extensions\" />
     <Folder Include="Generators\" />
-    <Folder Include="Services\Interface\" />
-    <Folder Include="Services\Implementation\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -12,6 +12,6 @@ namespace Resume.DAL.Models.Common
         [Key] 
         public T Id { get; set; }
 
-        public DateTime CreateDate { get; set; }
+        public DateTime CreateDate { get; set; } = DateTime.Now;
     }
 }
