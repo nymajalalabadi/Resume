@@ -13,4 +13,8 @@
     <Folder Include="Services\Implementation\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Resume.DAL\Resume.DAL.csproj" />
+  </ItemGroup>
+
 </Project>
