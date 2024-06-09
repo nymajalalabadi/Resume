@@ -509,7 +509,7 @@ $(document).ready(function() {
             email = $("#emailContact").val(),
             message = $("#messageContact").val();
 			
-        var url = "assets/php/form-contact.php";
+        var url = "/admin/php/form-contact.php";
 		
         $.ajax({
             type: "POST",
