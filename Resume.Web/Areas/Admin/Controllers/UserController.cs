@@ -45,7 +45,19 @@ namespace Resume.Web.Areas.Admin.Controllers
                 return View(create);
             }
 
-            return View();
+            var result = await _userService.CreateUser(create);
+
+            switch (result)
+            {
+                case CreateUserResult.Success:
+                    break;
+                case CreateUserResult.EmailExists:
+                    break;
+                default:
+                    break;
+            }
+
+            return View(create);
         }
 
         #endregion
@@ -55,7 +67,14 @@ namespace Resume.Web.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> Update(int id)
         {
-            return View();
+            var user = await _userService.GetForEditById(id);
+
+            if (user == null) 
+            { 
+                return NotFound();
+            }
+
+            return View(user);
         }
 
         [HttpPost]
@@ -66,7 +85,25 @@ namespace Resume.Web.Areas.Admin.Controllers
                 return View(edit);
             }
 
-            return View();
+            var result = await _userService.EditUser(edit);
+
+            switch (result)
+            {
+                case EditUserResult.Success:
+                    break;
+                case EditUserResult.Error:
+                    break;
+                case EditUserResult.UserNotFound:
+                    break;
+                case EditUserResult.EmailDuplicated:
+                    break;
+                case EditUserResult.MobileDuplicated:
+                    break;
+                default:
+                    break;
+            }
+
+            return View(edit);
         }
 
         #endregion
