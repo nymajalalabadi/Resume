@@ -50,7 +50,7 @@ namespace Resume.Bussines.Services.Implementation
            await model.Paging(query.Select(user => new UserDetailsViewModel()
             {
                 CreateDate = user.CreateDate,
-                Email = user.Email,
+                Email = user.Email.ToLower().Trim(),
                 FirstName = user.FirstName,
                 Id = user.Id,
                 IsActive = user.IsActive,
