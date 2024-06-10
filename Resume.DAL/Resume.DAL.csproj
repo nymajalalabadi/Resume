@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="ViewModels\Common\" />
     <Folder Include="ViewModels\Account\" />
   </ItemGroup>
 

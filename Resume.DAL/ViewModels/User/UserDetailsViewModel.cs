@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Resume.DAL.ViewModels.User
 {
-    internal class UserDetailsViewModel
+    public class UserDetailsViewModel
     {
         public int Id { get; set; }
 
