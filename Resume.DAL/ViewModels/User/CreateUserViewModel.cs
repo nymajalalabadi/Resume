@@ -45,6 +45,6 @@ namespace Resume.DAL.ViewModels.User
     public enum CreateUserResult
     {
         Success,
-        Error
+        EmailExists
     }
 }

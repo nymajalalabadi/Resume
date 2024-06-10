@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Resume.DAL.ViewModels.User;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,16 @@ namespace Resume.Bussines.Services.Interface
 {
     public interface IUserService
     {
+        #region Methods
+
+        Task<FilterUserViewModel> FilterAsync(FilterUserViewModel model);
+
+        Task<CreateUserResult> CreateUser(CreateUserViewModel model);
+
+        Task<EditUserViewModel> GetForEditById(int id);
+
+        Task<EditUserResult> EditUser(EditUserViewModel model);
+
+        #endregion
     }
 }

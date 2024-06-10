@@ -11,7 +11,7 @@ namespace Resume.DAL.ViewModels.Common
         public BasePaging()
         {
             Page = 1;
-            TakeEntity = 10;
+            TakeEntity = 5;
             HowManyShowPageAfterAndBefore = 5;
             Entities = new List<T>();
         }
@@ -34,6 +34,7 @@ namespace Resume.DAL.ViewModels.Common
 
         public List<T> Entities { get; set; }
 
+
         public PagingViewModel GetCurrentPaging()
         {
             return new PagingViewModel
@@ -53,6 +54,7 @@ namespace Resume.DAL.ViewModels.Common
             var allEntitiesCount = queryable.Count();
 
             var pageCount = 0;
+
             try
             {
                 pageCount = Convert.ToInt32(Math.Ceiling(allEntitiesCount / (double)TakeEntity));
@@ -74,6 +76,7 @@ namespace Resume.DAL.ViewModels.Common
 
             return this;
         }
+
 
         public BasePaging<T> Paging()
         {
