@@ -3,6 +3,7 @@ using Resume.Bussines.Security;
 using Resume.Bussines.Services.Interface;
 using Resume.DAL.Models.User;
 using Resume.DAL.Repositories.Interface;
+using Resume.DAL.ViewModels.Account;
 using Resume.DAL.ViewModels.User;
 using System;
 using System.Collections.Generic;
@@ -58,7 +59,7 @@ namespace Resume.Bussines.Services.Implementation
 
             #region Paging
 
-           await model.Paging(result);
+            await model.Paging(result);
 
             #endregion
 
@@ -91,7 +92,7 @@ namespace Resume.Bussines.Services.Implementation
         {
             var user = await _userRepository.GetUserById(id);
 
-            if (user == null) 
+            if (user == null)
             {
                 return null;
             }
@@ -116,8 +117,8 @@ namespace Resume.Bussines.Services.Implementation
                 return EditUserResult.UserNotFound;
             }
 
-            if (await _userRepository.DuplicatedEmail(model.Id, model.Email.ToLower().Trim())) 
-            { 
+            if (await _userRepository.DuplicatedEmail(model.Id, model.Email.ToLower().Trim()))
+            {
                 return EditUserResult.EmailDuplicated;
             }
 
@@ -136,6 +137,34 @@ namespace Resume.Bussines.Services.Implementation
             await _userRepository.SaveChanges();
 
             return EditUserResult.Success;
+        }
+
+        public async Task<LoginResult> Login(LoginViewModel model)
+        {
+            model.Email = model.Email.Trim().ToLower();
+
+            var user = await _userRepository.GetUserByEmail(model.Email);
+
+            if (user == null)
+            {
+                return LoginResult.UserNotFound;
+            }
+
+            string hashPassword = model.Password;
+
+            if (user.Password != hashPassword)
+            {
+                return LoginResult.UserNotFound;
+            }
+
+            return LoginResult.Success;
+        }
+
+        public async Task<User?> GetUserByEmail(string email)
+        {
+            email = email.Trim().ToLower();
+
+            return await _userRepository.GetUserByEmail(email);
         }
 
         #endregion

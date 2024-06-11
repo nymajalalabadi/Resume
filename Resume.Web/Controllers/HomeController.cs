@@ -3,7 +3,7 @@ using System.Diagnostics;
 
 namespace Resume.Web.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : SiteBaseController
     {
         private readonly ILogger<HomeController> _logger;
 
