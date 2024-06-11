@@ -79,7 +79,7 @@ namespace Resume.Bussines.Services.Implementation
                 FirstName = model.FirstName,
                 LastName = model.LastName,
                 Mobile = model.Mobile,
-                Password = PasswordHelper.EncodePasswordMd5(model.Password),
+                Password = PasswordHelper.EncodePasswordMd5(model.Password.Trim()),
             };
 
             await _userRepository.AddUser(newUser);
@@ -150,7 +150,7 @@ namespace Resume.Bussines.Services.Implementation
                 return LoginResult.UserNotFound;
             }
 
-            string hashPassword = model.Password;
+            string hashPassword = PasswordHelper.EncodePasswordMd5(model.Password.Trim());
 
             if (user.Password != hashPassword)
             {

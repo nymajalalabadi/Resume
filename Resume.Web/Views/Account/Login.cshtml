@@ -1,0 +1,51 @@
+﻿@using Resume.DAL.ViewModels.Account
+@model LoginViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>ورود</title>
+
+    <link rel="icon" href="/Admin/images/favicon.ico" type="image/x-icon">
+    <link href="/Admin/css/app.min.css" rel="stylesheet">
+    <link href="/Admin/js/bundles/materialize-rtl/materialize-rtl.min.css" rel="stylesheet">
+    <link href="/Admin/css/style.css" rel="stylesheet" />
+    <link href="/Admin/css/pages/extra_pages.css" rel="stylesheet" />
+    <link href="/Admin/css/custom-login.css" rel="stylesheet" />
+</head>
+
+<body class="light rtl">
+    <div class="loginmain">
+        <div class="loginCard">
+            <div class="wrapper">
+                <form id="login" asp-action="Login" tabindex="500">
+                    <h3>ورود</h3>
+                    <div class="mail">
+                        <input type="email" asp-for="Email">
+                        <label asp-for="Email"></label>
+                        <span asp-validation-for="Email"></span>
+                    </div>
+                    <div class="passwd">
+                        <input type="password" asp-for="Password">
+                        <label asp-for="Password"></label>
+                        <span asp-validation-for="Password"></span>
+                    </div>
+                    <div class="submit">
+                        <button class="dark">ورود</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="/Admin/js/app.min.js"></script>
+    <script src="/Admin/js/pages/examples/login-register.js"></script>
+</body>
+
+</html> 

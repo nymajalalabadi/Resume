@@ -89,8 +89,19 @@ namespace Resume.Web.Controllers
             return View(login);
         }
 
+        #endregion
+
+        #region Logout
+
+        [HttpGet("logout")]
+        public async Task<IActionResult> LogOut()
+        {
+            await HttpContext.SignOutAsync();
+            return RedirectToAction("Index", "Home");
+        }
 
         #endregion
+
 
         #endregion
     }

@@ -1,0 +1,10 @@
+﻿.mail,
+.passwd {
+    text-align: right !important;
+}
+
+.field-validation-error {
+    color: red !important;
+    font-size: 12px !important;
+    margin-bottom: 7px !important;
+}
