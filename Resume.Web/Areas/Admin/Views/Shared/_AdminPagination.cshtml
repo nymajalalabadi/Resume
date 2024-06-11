@@ -7,7 +7,7 @@
             <ul class="pagination">
                 @for (int i = Model.StartPage; i <= Model.EndPage; i++)
                 {
-                    <li class="paginate_button page-item @(Model.Page==i?"active":"")">
+                    <li class="paginate_button page-item @(Model.PageId==i?"active":"")">
                         <a onclick="fillPageId('@i')" aria-controls="tableGroup" data-dt-idx="@i" tabindex="0" class="page-link">
                             @i
                         </a>

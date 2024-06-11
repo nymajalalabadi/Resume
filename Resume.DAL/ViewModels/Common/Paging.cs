@@ -10,13 +10,13 @@ namespace Resume.DAL.ViewModels.Common
     {
         public BasePaging()
         {
-            Page = 1;
+            PageId = 1;
             TakeEntity = 5;
             HowManyShowPageAfterAndBefore = 5;
             Entities = new List<T>();
         }
 
-        public int Page { get; set; }
+        public int PageId { get; set; }
 
         public int PageCount { get; set; }
 
@@ -39,10 +39,10 @@ namespace Resume.DAL.ViewModels.Common
         {
             return new PagingViewModel
             {
-                EndPage = EndPage,
-                Page = Page,
-                StartPage = StartPage,
-                PageCount = PageCount
+                EndPage = this.EndPage,
+                PageId = this.PageId,
+                StartPage = this.StartPage,
+                PageCount = this.PageCount
             };
         }
 
@@ -64,13 +64,13 @@ namespace Resume.DAL.ViewModels.Common
 
             }
 
-            Page = Page > pageCount ? pageCount : Page;
-            if (Page <= 0) Page = 1;
+            PageId = PageId > pageCount ? pageCount : PageId;
+            if (PageId <= 0) PageId = 1;
             AllEntitiesCount = allEntitiesCount;
             HowManyShowPageAfterAndBefore = HowManyShowPageAfterAndBefore;
-            SkipEntity = (Page - 1) * TakeEntity;
-            StartPage = Page - HowManyShowPageAfterAndBefore <= 0 ? 1 : Page - HowManyShowPageAfterAndBefore;
-            EndPage = Page + HowManyShowPageAfterAndBefore > pageCount ? pageCount : Page + HowManyShowPageAfterAndBefore;
+            SkipEntity = (PageId - 1) * TakeEntity;
+            StartPage = PageId - HowManyShowPageAfterAndBefore <= 0 ? 1 : PageId - HowManyShowPageAfterAndBefore;
+            EndPage = PageId + HowManyShowPageAfterAndBefore > pageCount ? pageCount : PageId + HowManyShowPageAfterAndBefore;
             PageCount = pageCount;
             Entities = await Task.Run(() => queryable.Skip(SkipEntity).Take(TakeEntity).ToList());
 
@@ -92,12 +92,12 @@ namespace Resume.DAL.ViewModels.Common
 
             }
 
-            Page = Page > pageCount ? pageCount : Page;
-            if (Page <= 0) Page = 1;
+            PageId = PageId > pageCount ? pageCount : PageId;
+            if (PageId <= 0) PageId = 1;
             AllEntitiesCount = allEntitiesCount;
             HowManyShowPageAfterAndBefore = HowManyShowPageAfterAndBefore;
-            StartPage = Page - HowManyShowPageAfterAndBefore <= 0 ? 1 : Page - HowManyShowPageAfterAndBefore;
-            EndPage = Page + HowManyShowPageAfterAndBefore > pageCount ? pageCount : Page + HowManyShowPageAfterAndBefore;
+            StartPage = PageId - HowManyShowPageAfterAndBefore <= 0 ? 1 : PageId - HowManyShowPageAfterAndBefore;
+            EndPage = PageId + HowManyShowPageAfterAndBefore > pageCount ? pageCount : PageId + HowManyShowPageAfterAndBefore;
             PageCount = pageCount;
             return this;
         }
@@ -105,7 +105,7 @@ namespace Resume.DAL.ViewModels.Common
 
     public class PagingViewModel
     {
-        public int Page { get; set; }
+        public int PageId { get; set; }
 
         public int StartPage { get; set; }
 
