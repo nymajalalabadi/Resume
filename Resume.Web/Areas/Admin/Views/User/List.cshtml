@@ -1,8 +1,97 @@
-﻿@model Resume.DAL.ViewModels.User.FilterUserViewModel
+﻿@using Resume.DAL.ViewModels.User
+@model FilterUserViewModel
 
 @{
-    ViewData["Title"] = "List";
+    ViewData["Title"] = "لیست کابران";
 }
 
-<h1>List</h1>
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mb-4">
+        <div class="card">
+            <div class="header">
+                <h2>
+                    فیلتر ها
+                </h2>
+            </div>
+            <div class="body">
+                <form asp-action="List" asp-controller="User" method="get" id="filter-search">
+                    <input type="hidden" asp-for="Page" />
+                    <div class="row clearfix">
+                        <div class="col-sm-12  col-md-4">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" asp-for="Mobile" class="form-control">
+                                    <label asp-for="Mobile" class="form-label"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" asp-for="Email" class="form-control">
+                                    <label asp-for="Email" class="form-label"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <button class="btn btn-success">جستجو</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="header">
+                <h2>
+                    <strong>@ViewData["Title"]</strong>
+                </h2>
+            </div>
+            <div class="body table-responsive">
+                @if (Model.Entities != null && Model.Entities.Any())
+                {
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>آیدی</th>
+                                <th>نام</th>
+                                <th>نام خانوادگی</th>
+                                <th>موبایل</th>
+                                <th>ایمیل</th>
+                                <th>وضعیت</th>
+                                <th>تاریخ ثبت نام</th>
+                                <th>عملیات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var user in Model.Entities)
+                            {
+                                <tr>
+                                    <th scope="row">@user.Id</th>
+                                    <td>@user.FirstName</td>
+                                    <td>@user.LastName</td>
+                                    <td>@user.Mobile</td>
+                                    <td>@user.Email</td>
+                                    <td>
+                                        @if (user.IsActive)
+                                        {
+                                            <div class="badge col-green">فعال</div>
+                                        }
+                                        else
+                                        {
+                                            <div class="badge col-red">غیرفعال</div>
+                                        }
+                                    </td>
+                                    <td>@user.CreateDate</td>
+                                    <td></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+            </div>
+        </div>
+    </div>
+</div>
