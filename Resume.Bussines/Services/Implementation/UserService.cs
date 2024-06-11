@@ -45,9 +45,7 @@ namespace Resume.Bussines.Services.Implementation
 
             #endregion
 
-            #region Paging
-
-           await model.Paging(query.Select(user => new UserDetailsViewModel()
+            var result = query.Select(user => new UserDetailsViewModel()
             {
                 CreateDate = user.CreateDate,
                 Email = user.Email.ToLower().Trim(),
@@ -56,7 +54,11 @@ namespace Resume.Bussines.Services.Implementation
                 IsActive = user.IsActive,
                 LastName = user.LastName,
                 Mobile = user.Mobile
-            }));
+            });
+
+            #region Paging
+
+           await model.Paging(result);
 
             #endregion
 

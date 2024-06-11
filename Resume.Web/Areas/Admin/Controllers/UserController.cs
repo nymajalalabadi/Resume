@@ -24,7 +24,9 @@ namespace Resume.Web.Areas.Admin.Controllers
 
         public async Task<IActionResult> List(FilterUserViewModel filter)
         {
-            return View();
+            var result = await _userService.FilterAsync(filter);
+
+            return View(result);
         }
 
         #endregion
