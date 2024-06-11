@@ -90,6 +90,11 @@
                             }
                         </tbody>
                     </table>
+                    <partial name="_AdminPagination" model="@Model.GetCurrentPaging()" />
+                }
+                else
+                {
+                    <partial name="_AdminNotFound" />
                 }
             </div>
         </div>
