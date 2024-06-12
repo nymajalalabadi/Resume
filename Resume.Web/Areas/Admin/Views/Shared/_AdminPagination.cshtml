@@ -3,11 +3,11 @@
 
 <div class="row">
     <div class="col-sm-12 col-md-12">
-        <div class="dataTables_paginate paging_simple_numbers" id="tableGroup_paginate">
+        <div class="dataTables_paginate paging_simple_numbers d-flex justify-content-center" id="tableGroup_paginate">
             <ul class="pagination">
                 @for (int i = Model.StartPage; i <= Model.EndPage; i++)
                 {
-                    <li class="paginate_button page-item @(Model.PageId==i?"active":"")">
+                    <li class="paginate_button page-item @(Model.PageId == i ? "active" : "")">
                         <a onclick="fillPageId('@i')" aria-controls="tableGroup" data-dt-idx="@i" tabindex="0" class="page-link">
                             @i
                         </a>

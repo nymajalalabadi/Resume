@@ -36,12 +36,12 @@ namespace Resume.Bussines.Services.Implementation
 
             if (!string.IsNullOrEmpty(model.Email))
             {
-                query = query.Where(u => u.Email == model.Email);
+                query = query.Where(u => u.Email.Contains(model.Email));
             }
 
             if (!string.IsNullOrEmpty(model.Mobile))
             {
-                query = query.Where(u => u.Mobile == model.Mobile);
+                query = query.Where(u => u.Mobile.Contains(model.Mobile));
             }
 
             #endregion
