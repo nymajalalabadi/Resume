@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Resume.DAL.Models.ContactUs;
 using Resume.DAL.Models.User;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,8 @@ namespace Resume.DAL.Context
         #region DbSets
 
         public DbSet<User> Users { get; set; }
+
+        public DbSet<ContactUs> ContactUs { get; set; }
 
         #endregion
 

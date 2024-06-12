@@ -13,11 +13,15 @@ namespace Resume.Web.Configuration
 
             services.AddScoped<IUserRepository, UserRepository>();
 
+            services.AddScoped<IContactUsRepository, ContactUsRepository>();
+
             #endregion
 
             #region Services
 
             services.AddScoped<IUserService, UserService>();
+
+            services.AddScoped<IContactUsService, ContactUsService>();
 
             #endregion
         }
