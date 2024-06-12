@@ -34,7 +34,7 @@ namespace Resume.Web.Areas.Admin.Controllers
         #region Create
 
         [HttpGet]
-        public async Task<IActionResult> Create()
+        public IActionResult Create()
         {
             return View();
         }
@@ -52,10 +52,11 @@ namespace Resume.Web.Areas.Admin.Controllers
             switch (result)
             {
                 case CreateUserResult.Success:
-                    break;
+                    TempData[SuccessMessage] = "کاربر جدید با موفقیت افزوده شد.";
+                    return RedirectToAction("List");
+
                 case CreateUserResult.EmailExists:
-                    break;
-                default:
+                    TempData[ErrorMessage] = "خطایی رخ داده است.";
                     break;
             }
 
@@ -92,19 +93,25 @@ namespace Resume.Web.Areas.Admin.Controllers
             switch (result)
             {
                 case EditUserResult.Success:
-                    break;
+                    TempData[SuccessMessage] = "کاربر با موفقیت ویرایش شد.";
+                    return RedirectToAction("List");
+
                 case EditUserResult.Error:
+                    TempData[ErrorMessage] = "خطایی رخ داده است.";
                     break;
+
                 case EditUserResult.UserNotFound:
+                    TempData[ErrorMessage] = "کاربری پیدار نشد.";
                     break;
+
                 case EditUserResult.EmailDuplicated:
+                    TempData[ErrorMessage] = "ایمیل تکراری است.";
                     break;
+
                 case EditUserResult.MobileDuplicated:
-                    break;
-                default:
+                    TempData[ErrorMessage] = "شماره موبایل تکراری است.";
                     break;
             }
-
             return View(edit);
         }
 

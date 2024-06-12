@@ -14,7 +14,7 @@
                 </h2>
             </div>
             <div class="body">
-                <form asp-action="List" asp-controller="User" method="get" id="filter-search">
+                <form asp-area="" asp-controller="User" asp-action="List" method="get" id="filter-search">
                     <input type="hidden" asp-for="PageId" />
                     <div class="row clearfix">
                         <div class="col-sm-12  col-md-4">
@@ -85,7 +85,11 @@
                                         }
                                     </td>
                                     <td>@user.CreateDate</td>
-                                    <td></td>
+                                    <td>
+                                        <a asp-area="" asp-controller="user" asp-action="Update" asp-route-id="@user.Id" class="text-warning">
+                                            <i class="fa fa-pen"></i>
+                                        </a>
+                                    </td>
                                 </tr>
                             }
                         </tbody>

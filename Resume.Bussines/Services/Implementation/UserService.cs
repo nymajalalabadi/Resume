@@ -167,6 +167,26 @@ namespace Resume.Bussines.Services.Implementation
             return await _userRepository.GetUserByEmail(email);
         }
 
+        public async Task<UserDetailsViewModel> GetInfromation(int id)
+        {
+            var  user = await _userRepository.GetUserById(id);
+
+            if (user != null)
+            {
+                return new UserDetailsViewModel()
+                {
+                    Id = user!.Id,
+                    Email = user.Email,
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                    Mobile = user.Mobile,
+                    IsActive = user.IsActive,
+                    CreateDate = user.CreateDate
+                };
+            }
+
+            return null;
+        }
         #endregion
     }
 }

@@ -25,6 +25,8 @@ namespace Resume.Bussines.Services.Interface
 
         Task<User?> GetUserByEmail(string email);
 
+        Task<UserDetailsViewModel> GetInfromation(int id);
+
         #endregion
     }
 }

@@ -41,7 +41,7 @@ namespace Resume.DAL.Context
                     Id = 1,
                     IsActive = true,
                     Mobile = "09367806232",
-                    Password = "82-7C-CB-0E-EA-8A-70-6C-4C-34-A1-68-91-F8-4E-7B"
+                    Password = "82-7C-CB-0E-EA-8A-70-6C-4C-34-A1-68-91-F8-4E-7B" //12345
                 });
 
             #endregion
