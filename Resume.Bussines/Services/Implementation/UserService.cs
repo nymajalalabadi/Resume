@@ -80,6 +80,7 @@ namespace Resume.Bussines.Services.Implementation
                 LastName = model.LastName,
                 Mobile = model.Mobile,
                 Password = PasswordHelper.EncodePasswordMd5(model.Password.Trim()),
+                IsActive= model.IsActive,
             };
 
             await _userRepository.AddUser(newUser);
