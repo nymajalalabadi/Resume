@@ -1,4 +1,5 @@
 ﻿using Resume.DAL.Context;
+using Resume.DAL.Models.ContactUs;
 using Resume.DAL.Repositories.Interface;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,21 @@ namespace Resume.DAL.Repositories.Implementation
         {
             _context = context;
         }
+
+        #endregion
+
+        #region Methods
+
+        public async Task AddContactUs(ContactUs contactUs)
+        {
+            await _context.ContactUs.AddAsync(contactUs);
+        }
+
+        public async Task SaveChanges()
+        {
+            await _context.SaveChangesAsync();
+        }
+
 
         #endregion
     }
