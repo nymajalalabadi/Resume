@@ -1,14 +1,13 @@
-﻿using Resume.DAL.Models.Common;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Resume.DAL.Models.ContactUs
+namespace Resume.DAL.ViewModels.ContactUs
 {
-    public class ContactUs : BaseEntity<int>
+    public class CreateContactUsViewModel
     {
         #region Properties
 
@@ -48,8 +47,12 @@ namespace Resume.DAL.Models.ContactUs
         [MaxLength(1000, ErrorMessage = "تعداد کاراکتر شده بیش از حد مجاز است")]
         public string Description { get; set; }
 
-        public string? Answer { get; set; }
-
         #endregion
+    }
+
+    public enum CreateContactUsResult
+    {
+        Success,
+        Error
     }
 }
