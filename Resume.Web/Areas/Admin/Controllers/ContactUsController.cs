@@ -15,11 +15,12 @@ namespace Resume.Web.Areas.Admin.Controllers
 			_contactUsService = contactUsService;
 		}
 
-		#endregion
+        #endregion
 
-		#region Actions
+        #region Actions
 
-		public async Task<IActionResult> List(FilterContactUsViewModel model)
+        [HttpGet]
+        public async Task<IActionResult> List(FilterContactUsViewModel model)
 		{
 			model.TakeEntity = 2;
 

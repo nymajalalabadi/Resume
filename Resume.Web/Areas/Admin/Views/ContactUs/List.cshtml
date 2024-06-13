@@ -67,10 +67,9 @@
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-4">
-                            <div class="input-field col s12">
-                                <select asp-for="AnswerStatus" asp-items="Html.GetEnumSelectList(typeof(FilterContactUsAnswerStatus))" class="form-control">
-                                </select>
-                                <label asp-for="AnswerStatus"></label>
+                            <div class="form-group form-float">
+                                <select class="form-control" asp-for="AnswerStatus" asp-items="Html.GetEnumSelectList(typeof(FilterContactUsAnswerStatus))"></select>
+                                <label asp-for="AnswerStatus">وضیعت پاسخ</label>
                             </div>
                         </div>
                         <div class="col-sm-12">
@@ -100,6 +99,7 @@
                                 <th>ایمیل</th>
                                 <th>عنوان</th>
                                 <th>تاریخ ثبت</th>
+                                <th>وضیعت پاسخ</th>
                                 <th>عملیات</th>
                             </tr>
                         </thead>
@@ -115,7 +115,17 @@
                                     <td>@item.Title</td>
                                     <td>@item.CreateDate.ToShamsi()</td>
                                     <td>
-                                        <a asp-action="Details" class="text-info" asp-route-id="@item.ContactUsId">
+                                        @if (item.Answer == null)
+                                        {
+                                            <div class="badge col-red">پاسخ داده نشده</div>
+                                        }
+                                        else
+                                        {
+                                            <div class="badge col-green">پاسخ داده شده</div>
+                                        }
+                                    </td>
+                                    <td>
+                                        <a asp-area="admin" asp-controller="ContactUs" asp-action="Details" asp-route-id="@item.ContactUsId" class="text-info">
                                             <i class="fa fa-eye"></i>
                                         </a>
                                     </td>
