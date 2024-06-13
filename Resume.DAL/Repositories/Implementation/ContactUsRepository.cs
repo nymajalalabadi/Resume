@@ -20,11 +20,16 @@ namespace Resume.DAL.Repositories.Implementation
             _context = context;
         }
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
-        public async Task AddContactUs(ContactUs contactUs)
+		public async Task<IQueryable<ContactUs>> GetAllContactUs()
+        {
+            return _context.ContactUs.AsQueryable();
+        }
+
+		public async Task AddContactUs(ContactUs contactUs)
         {
             await _context.ContactUs.AddAsync(contactUs);
         }

@@ -1,4 +1,6 @@
 ﻿using Resume.DAL.Models.ContactUs;
+using Resume.DAL.Models.User;
+using Resume.DAL.ViewModels.User;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +11,11 @@ namespace Resume.DAL.Repositories.Interface
 {
     public interface IContactUsRepository
     {
-        #region Methods
+		#region Methods
 
-        Task AddContactUs(ContactUs contactUs);
+		Task<IQueryable<ContactUs>> GetAllContactUs();
+
+		Task AddContactUs(ContactUs contactUs);
 
         Task SaveChanges();
 
