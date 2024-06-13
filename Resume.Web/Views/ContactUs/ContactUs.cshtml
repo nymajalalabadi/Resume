@@ -1,7 +1,54 @@
-﻿
+﻿@using Resume.DAL.ViewModels.ContactUs
+@model CreateContactUsViewModel
+
 @{
-    ViewData["Title"] = "ContactUs";
+	ViewData["Title"] = "تماس با ما";
 }
 
-<h1>ContactUs</h1>
+<div class="box box-content">
+	<div class="pb-2">
+		<h1 class="title title--h1 first-title title__separate">@ViewData["Title"]</h1>
+	</div>
 
+	<!-- Contact -->
+	<h2 class="title title--h3">فرم @ViewData["Title"]</h2>
+
+	<form asp-action="ContactUs" class="contact-form">
+		<div class="row">
+			<div class="form-group col-12 col-md-12">
+				<input type="text" class="form-control" asp-for="Title" placeholder="عنوان">
+				<span asp-validation-for="Title"></span>
+			</div>
+			<div class="form-group col-12 col-md-6">
+				<input type="text" class="form-control" asp-for="FirstName" placeholder="نام">
+				<span asp-validation-for="FirstName"></span>
+			</div>
+			<div class="form-group col-12 col-md-6">
+				<input type="text" class="form-control" asp-for="LastName" placeholder="نام خانوادگی">
+				<span asp-validation-for="LastName"></span>
+			</div>
+			<div class="form-group col-12 col-md-6">
+				<input type="text" class="form-control" asp-for="Email" placeholder="ایمیل">
+				<span asp-validation-for="Email"></span>
+			</div>
+			<div class="form-group col-12 col-md-6">
+				<input type="text" class="form-control" asp-for="Mobile" placeholder="شماره تماس">
+				<span asp-validation-for="Mobile"></span>
+			</div>
+
+
+			<div class="form-group col-12 col-md-12">
+				<textarea class="textarea form-control" asp-for="Description" placeholder="پیام..." rows="4"></textarea>
+				<span asp-validation-for="Description"></span>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 col-md-6 order-2 order-md-1 text-center text-md-left">
+				<div id="validator-contact" class="hidden"></div>
+			</div>
+			<div class="col-12 col-md-6 order-1 order-md-2 text-left">
+				<button type="submit" class="btn"><i class="font-icon icon-send"></i> پیام بفرستید</button>
+			</div>
+		</div>
+	</form>
+</div>
