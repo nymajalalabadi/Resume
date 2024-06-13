@@ -1,7 +1,140 @@
-﻿
+﻿@using Resume.Bussines.Extensions
+@using Resume.DAL.ViewModels.ContactUs
+@model FilterContactUsViewModel
+
 @{
-    ViewData["Title"] = "List";
+    ViewData["Title"] = "لیست تماس با ما";
 }
 
-<h1>List</h1>
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mb-4">
+        <div class="card">
+            <div class="header">
+                <h2>
+                    فیلتر ها
+                </h2>
+            </div>
+            <div class="body">
+                <form asp-area="admin" asp-controller="ContactUs" asp-action="List" method="get" id="filter-search">
+                    <input type="hidden" asp-for="PageId" />
+                    <div class="row clearfix">
+                        <div class="col-sm-12  col-md-4">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" asp-for="Title">
+                                    <label class="form-label" asp-for="Title"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12  col-md-4">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" asp-for="FirstName">
+                                    <label class="form-label" asp-for="FirstName"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12  col-md-4">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" asp-for="LastName">
+                                    <label class="form-label" asp-for="LastName"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12  col-md-4">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" asp-for="Mobile">
+                                    <label class="form-label" asp-for="Mobile"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12  col-md-4">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" asp-for="Mobile">
+                                    <label class="form-label" asp-for="Mobile"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" asp-for="Email">
+                                    <label class="form-label" asp-for="Email"></label>
+                                </div>
+                            </div>
+                        </div>
+                        @* <div class="col-sm-12 col-md-4">
+                        <div class="input-field col s12">
+                        <select>
+                        @foreach (var item in Enum.GetValues<FilterContactUsAnswerStatus>().Cast<FilterContactUsAnswerStatus>().ToList())
+                        {
+                        <option value="@item">@item.GetEnumName()</option>
+                        }
+                        </select>
+                        <label asp-for="AnswerStatus"></label>
+                        </div>
+                        </div> *@
+                        <div class="col-sm-12">
+                            <button class="btn btn-success">جستجو</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="header">
+                <h2>
+                    @ViewData["Title"]
+                </h2>
+            </div>
+            <div class="body table-responsive">
+                @if (Model != null && Model.Entities != null && Model.Entities.Any())
+                {
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>نام</th>
+                                <th>نام خانوادگی</th>
+                                <th>موبایل</th>
+                                <th>ایمیل</th>
+                                <th>عنوان</th>
+                                <th>تاریخ ثبت</th>
+                                <th>عملیات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
 
+                            @foreach (var item in Model.Entities)
+                            {
+                                <tr>
+                                    <td>@item.FirstName</td>
+                                    <td>@item.LastName</td>
+                                    <td>@item.Mobile</td>
+                                    <td>@item.Email</td>
+                                    <td>@item.Title</td>
+                                    <td>@item.CreateDate.ToShamsi()</td>
+                                    <td>
+                                        <a asp-action="Details" class="text-info" asp-route-id="@item.ContactUsId">
+                                            <i class="fa fa-eye"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+
+                    <partial name="_AdminPagination" model="@Model.GetCurrentPaging()" />
+                }
+                else
+                {
+                    <partial name="_AdminNotFound" />
+                }
+            </div>
+        </div>
+    </div>
+</div>
