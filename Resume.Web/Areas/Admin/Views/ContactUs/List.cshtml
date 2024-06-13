@@ -66,17 +66,13 @@
                                 </div>
                             </div>
                         </div>
-                        @* <div class="col-sm-12 col-md-4">
-                        <div class="input-field col s12">
-                        <select>
-                        @foreach (var item in Enum.GetValues<FilterContactUsAnswerStatus>().Cast<FilterContactUsAnswerStatus>().ToList())
-                        {
-                        <option value="@item">@item.GetEnumName()</option>
-                        }
-                        </select>
-                        <label asp-for="AnswerStatus"></label>
+                        <div class="col-sm-12 col-md-4">
+                            <div class="input-field col s12">
+                                <select asp-for="AnswerStatus" asp-items="Html.GetEnumSelectList(typeof(FilterContactUsAnswerStatus))" class="form-control">
+                                </select>
+                                <label asp-for="AnswerStatus"></label>
+                            </div>
                         </div>
-                        </div> *@
                         <div class="col-sm-12">
                             <button class="btn btn-success">جستجو</button>
                         </div>
