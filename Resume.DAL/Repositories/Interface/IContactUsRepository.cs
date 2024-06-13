@@ -13,9 +13,13 @@ namespace Resume.DAL.Repositories.Interface
     {
 		#region Methods
 
+        Task<ContactUs?> GetContactUsById(int id);
+
 		Task<IQueryable<ContactUs>> GetAllContactUs();
 
 		Task AddContactUs(ContactUs contactUs);
+
+        void Update(ContactUs contactUs);   
 
         Task SaveChanges();
 

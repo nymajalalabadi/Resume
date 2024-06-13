@@ -125,14 +125,47 @@ namespace Resume.Bussines.Services.Implementation
             return model;
 		}
 
-		public Task<ContactUsDetailsViewModel> GetContactUsById(int id)
+		public async Task<ContactUsDetailsViewModel> GetContactUsById(int id)
         {
-            throw new NotImplementedException();
+            var contactUs =  await _contactUsRepository.GetContactUsById(id);
+
+            return new ContactUsDetailsViewModel()
+            {
+                ContactUsId = contactUs!.Id,
+                Description = contactUs.Description,
+                Email = contactUs.Email,
+                FirstName = contactUs.FirstName,
+                LastName = contactUs.LastName,
+                Mobile = contactUs.Mobile,
+                Title = contactUs.Title,
+                CreateDate = contactUs.CreateDate,
+                Answer = contactUs.Answer,
+            };
         }
 
-        public Task<AnswerResult> AnswerContactUs(ContactUsDetailsViewModel model)
+        public async Task<AnswerResult> AnswerContactUs(ContactUsDetailsViewModel model)
         {
-            throw new NotImplementedException();
+            var contactUs = await _contactUsRepository.GetContactUsById(model.ContactUsId);
+
+            if (contactUs == null)
+            {
+                return AnswerResult.ContactUsNotFound;
+            }
+            
+            if (string.IsNullOrEmpty(model.Answer))
+            {
+                return AnswerResult.AnswerIsNull;
+            }
+
+            contactUs.Answer = model.Answer;
+
+            _contactUsRepository.Update(contactUs);
+            await _contactUsRepository.SaveChanges();
+
+            //string body = await _viewRenderService.RenderToStringAsync("Emails/AnswerContactUs", model);
+            //await _emailService.SendEmail(contactUs.Email, "پاسخ به تماس با ما", body);
+
+            return AnswerResult.Success;
         }
 
         #endregion
