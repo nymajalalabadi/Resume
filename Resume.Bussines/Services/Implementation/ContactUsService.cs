@@ -17,9 +17,15 @@ namespace Resume.Bussines.Services.Implementation
 
         private readonly IContactUsRepository _contactUsRepository;
 
-        public ContactUsService(IContactUsRepository contactUsRepository)
+        private readonly IEmailService _emailService;
+
+        private readonly IViewRenderService _viewRenderService;
+
+        public ContactUsService(IContactUsRepository contactUsRepository, IEmailService emailService, IViewRenderService viewRenderService)
         {
             _contactUsRepository = contactUsRepository;
+            _emailService = emailService;
+            _viewRenderService = viewRenderService;
         }
 
         #endregion
@@ -162,8 +168,8 @@ namespace Resume.Bussines.Services.Implementation
             _contactUsRepository.Update(contactUs);
             await _contactUsRepository.SaveChanges();
 
-            //string body = await _viewRenderService.RenderToStringAsync("Emails/AnswerContactUs", model);
-            //await _emailService.SendEmail(contactUs.Email, "پاسخ به تماس با ما", body);
+            string body = await _viewRenderService.RenderToStringAsync("Emails/AnswerContactUs", model);
+            await _emailService.SendEmail(contactUs.Email, "پاسخ به تماس با ما", body);
 
             return AnswerResult.Success;
         }

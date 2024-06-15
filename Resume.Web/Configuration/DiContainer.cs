@@ -23,6 +23,9 @@ namespace Resume.Web.Configuration
 
             services.AddScoped<IContactUsService, ContactUsService>();
 
+            services.AddScoped<IEmailService, EmailService>();
+            services.AddScoped<IViewRenderService, ViewRenderService>();
+
             #endregion
         }
     }
