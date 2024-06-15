@@ -7,6 +7,8 @@
     <title>ادمین | @ViewData["Title"]</title>
 
     <partial name="_HeaderReferences" />
+    @await RenderSectionAsync("Styles", false)
+
 </head>
 
 <body class="light rtl">
@@ -44,5 +46,6 @@
     </section>
 
     <partial name="_FooterReferences" />
+    @await RenderSectionAsync("Scripts", false)
     
 </body>

@@ -1,9 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Resume.Bussines.Services.Interface;
+using Resume.DAL.ViewModels.AboutMe;
 
 namespace Resume.Web.Areas.Admin.Controllers
 {
-    public class AboutMeController : Controller
+    public class AboutMeController : AdminBaseController
     {
         #region Constructor
 
@@ -19,9 +20,32 @@ namespace Resume.Web.Areas.Admin.Controllers
 
         #region Actions
 
-        public IActionResult Index()
+        [HttpGet]
+        public async Task<IActionResult> Edit()
         {
-            return View();
+            var result = await _aboutMeService.FillCreateOrEditAboutMe();
+
+            return View(result);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(CreateOrEditAboutMeViewModel createOrEdit)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(createOrEdit);
+            }
+
+            var result = await _aboutMeService.CreateOrEditAboutMe(createOrEdit);
+
+            if (result == true)
+            {
+                TempData[SuccessMessage] = "ویرایش درباره من با موفقیت انجام شد.";
+                return RedirectToAction(nameof(Edit));
+            }
+
+            TempData[ErrorMessage] = "خطایی رخ داده است لطفا مجدد تلاش کنید.";
+            return RedirectToAction(nameof(Edit));
         }
 
         #endregion

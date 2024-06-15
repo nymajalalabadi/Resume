@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Resume.DAL.Models.AboutMe;
+using Resume.DAL.ViewModels.AboutMe;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +12,9 @@ namespace Resume.Bussines.Services.Interface
     {
         #region Methods
 
+        Task<CreateOrEditAboutMeViewModel> FillCreateOrEditAboutMe();
 
+        Task<bool> CreateOrEditAboutMe(CreateOrEditAboutMeViewModel createOrEditAboutMe);
 
         #endregion
     }

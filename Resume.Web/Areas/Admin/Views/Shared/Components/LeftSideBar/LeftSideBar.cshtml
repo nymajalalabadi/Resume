@@ -33,7 +33,7 @@
                 </li>
                 <li class="active">
                     <a href="#" onClick="return false;" class="menu-toggle">
-                        <i class="menu-icon ti-user"></i>
+                        <i class="menu-icon ti-email"></i>
                         <span>مدیریت تماس با ما</span>
                     </a>
                     <ul class="ml-menu">
@@ -42,6 +42,18 @@
                         </li>
                     </ul>
                 </li>
+                <li class="active">
+                    <a href="#" onClick="return false;" class="menu-toggle">
+                        <i class="menu-icon ti-id-badge"></i>
+                        <span>مدیریت درباره ی من</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li class="active">
+                            <a asp-area="Admin" asp-controller="AboutMe" asp-action="Edit">درباره ی من</a>
+                        </li>
+                    </ul>
+                </li>
+
             </ul>
         </div>
     </aside>
