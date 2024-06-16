@@ -11,7 +11,7 @@ namespace Resume.Bussines.Tools
 
         #region DefaultNames
 
-        public static string DefaultImageName { get; set; }
+        public static string DefaultImageName { get; set; } = "/site/img/main-photo.svg";
 
         #endregion
 
