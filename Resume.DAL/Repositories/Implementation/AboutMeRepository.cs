@@ -27,7 +27,7 @@ namespace Resume.DAL.Repositories.Implementation
 
         public async Task<AboutMe?> GetAboutMe()
         {
-            return await _context.aboutMes.SingleOrDefaultAsync();
+            return await _context.aboutMes.FirstOrDefaultAsync();
         }
 
         public async Task CreateAboutMe(AboutMe aboutMe)
