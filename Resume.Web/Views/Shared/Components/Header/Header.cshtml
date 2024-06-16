@@ -10,7 +10,7 @@
             <img class="header__photo-img" src="@(string.IsNullOrEmpty(Model.ImageName) ? SiteTools.DefaultImageName : (SiteTools.AboutMeAvatar + Model.ImageName))" alt="@(Model.FirstName + " " + Model.LastName)">
         </div>
         <div class="header__base-info">
-            <h4 class="title titl--h4">@(Model.FirstName + Model.LastName)</h4>
+            <h4 class="title titl--h4">@(Model.FirstName +" "+ Model.LastName)</h4>
             @if (!string.IsNullOrEmpty(Model.Position))
             {
                 <div class="status">@Model.Position</div>
