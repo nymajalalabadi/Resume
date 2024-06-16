@@ -16,6 +16,8 @@ namespace Resume.Bussines.Services.Interface
 
         Task<bool> CreateOrEditAboutMe(CreateOrEditAboutMeViewModel createOrEditAboutMe);
 
+        Task<ClientSideEditAboutMeViewModel> GetAboutMeForShowing();
+
         #endregion
     }
 }

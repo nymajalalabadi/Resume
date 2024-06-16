@@ -1,26 +1,61 @@
-﻿<header class="header box">
-	<div class="header__left">
-		<div class="header__photo">
-			<img class="header__photo-img" src="/site/img/main-photo.svg" alt="Ronald Robertson">
-		</div>
-		<div class="header__base-info">
-			<h4 class="title titl--h4">ملیکا خلیلیان</h4>
-			<div class="status">کارگردان خلاق</div>
-			<ul class="header__social">
-				<li><a href="https://www.facebook.com/"><i class="font-icon icon-facebook1"></i></a></li>
-				<li><a href="https://www.twitter.com/"><i class="font-icon icon-twitter1"></i></a></li>
-				<li><a href="https://www.instagram.com/"><i class="font-icon icon-instagram1"></i></a></li>
-			</ul>
-		</div>
-	</div>
-	<div class="header__right">
-		<ul class="header__contact">
-			<li><span class="overhead">ایمیل</span>Melika.khaliliyan@gmail.com</li>
-			<li><span class="overhead">تلفن</span>09105552211</li>
-		</ul>
-		<ul class="header__contact">
-			<li><span class="overhead">تولد</span>9 بهمن 1375</li>
-			<li><span class="overhead">مکان تولد</span>شاهرود ایران</li>
-		</ul>
-	</div>
+﻿@using Resume.Bussines.Extensions
+@using Resume.DAL.ViewModels.AboutMe
+@using Resume.Bussines.Convertor
+@using Resume.Bussines.Tools
+@model ClientSideEditAboutMeViewModel
+
+<header class="header box">
+    <div class="header__left">
+        <div class="header__photo">
+            <img class="header__photo-img" src="@(string.IsNullOrEmpty(Model.ImageName) ? "/site/img/main-photo.svg" : (SiteTools.AboutMeAvatar + Model.ImageName))" alt="@(Model.FirstName + Model.LastName)">
+        </div>
+        <div class="header__base-info">
+            <h4 class="title titl--h4">@(Model.FirstName + Model.LastName)</h4>
+            @if (!string.IsNullOrEmpty(Model.Position))
+            {
+                <div class="status">@Model.Position</div>
+            }
+            <ul class="header__social">
+                <li>
+                    <a href="https://www.facebook.com/">
+                        <i class="font-icon icon-facebook1"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.twitter.com/">
+                        <i class="font-icon icon-twitter1"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/">
+                        <i class="font-icon icon-instagram1"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="header__right">
+        <ul class="header__contact">
+            <li>
+                <span class="overhead">ایمیل</span>@Model.Email
+            </li>
+            <li>
+                <span class="overhead">تلفن</span>@Model.Mobile
+            </li>
+        </ul>
+        <ul class="header__contact">
+            @if (Model.BirthDate.HasValue)
+            {
+                <li>
+                    <span class="overhead">تولد</span>@Model.BirthDate.Value.ToShamsi()
+                </li>
+            }
+            @if (!string.IsNullOrEmpty(Model.Location))
+            {
+                <li>
+                    <span class="overhead">آدرس</span>@Model.Location
+                </li>
+            }
+        </ul>
+    </div>
 </header>

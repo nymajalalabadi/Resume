@@ -1,26 +1,28 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Resume.Bussines.Services.Interface;
 
 namespace Resume.Web.Components
 {
 	public class HeaderViewComponent : ViewComponent
 	{
-		#region Fields
+        #region Constructor
 
+        private readonly IAboutMeService _aboutMeService;
 
+        public HeaderViewComponent(IAboutMeService aboutMeService)
+        {
+            _aboutMeService = aboutMeService;
+        }
 
-		#endregion
+        #endregion
 
-		#region Constructor
+        #region Method
 
-
-
-		#endregion
-
-		#region Method
-
-		public async Task<IViewComponentResult> InvokeAsync()
+        public async Task<IViewComponentResult> InvokeAsync()
 		{
-			return View("Header");
+            var model = await _aboutMeService.GetAboutMeForShowing();
+
+			return View("Header", model);
 		}
 
 		#endregion

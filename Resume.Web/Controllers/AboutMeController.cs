@@ -22,7 +22,9 @@ namespace Resume.Web.Controllers
         [HttpGet("/")]
         public async Task<IActionResult> Index()
         {
-            return View();
+            var result = await _aboutMeService.GetAboutMeForShowing();
+
+            return View(result);
         }
 
         #endregion

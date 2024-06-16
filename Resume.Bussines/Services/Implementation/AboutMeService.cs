@@ -50,7 +50,7 @@ namespace Resume.Bussines.Services.Implementation
                 Bio = aboutMe.Bio,
                 Mobile = aboutMe.Mobile,
                 Position = aboutMe.Position,
-                ImageName = aboutMe.ImageName,
+                ImageName = aboutMe.ImageName
             };
         }
 
@@ -125,6 +125,30 @@ namespace Resume.Bussines.Services.Implementation
             await _aboutMeRepository.SaveChanges();
 
             return true;
+        }
+
+        public async Task<ClientSideEditAboutMeViewModel> GetAboutMeForShowing()
+        {
+            var aboutMe = await _aboutMeRepository.GetAboutMe();
+
+            if (aboutMe == null) 
+            {
+                return null;
+            }
+
+            return new ClientSideEditAboutMeViewModel()
+            {
+                Id = aboutMe.Id,
+                BirthDate = aboutMe.BirthDate,
+                FirstName = aboutMe.FirstName,
+                LastName = aboutMe.LastName,
+                Email = aboutMe.Email,
+                Location = aboutMe.Location,
+                Bio = aboutMe.Bio,
+                Mobile = aboutMe.Mobile,
+                Position = aboutMe.Position,
+                ImageName = aboutMe.ImageName!
+            };
         }
 
         #endregion
