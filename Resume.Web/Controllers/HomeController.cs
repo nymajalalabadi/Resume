@@ -14,12 +14,7 @@ namespace Resume.Web.Controllers
 
         public IActionResult Index()
         {
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
+            return RedirectToAction("Index", "AboutMe");
         }
     }
 }
