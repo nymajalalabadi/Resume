@@ -1,4 +1,5 @@
 ﻿using Resume.Bussines.Services.Interface;
+using Resume.DAL.Models.Activity;
 using Resume.DAL.Repositories.Interface;
 using Resume.DAL.ViewModels.Activity;
 using System;
@@ -55,6 +56,63 @@ namespace Resume.Bussines.Services.Implementation
             #endregion
 
             return filter;
+        }
+
+        public async Task<EditActivityViewModel?> GetActivityById(int id)
+        {
+            var edit = await _activityRepository.GetActivityById(id);
+
+            if (edit == null) 
+            {
+                return null;
+            }
+
+            return new EditActivityViewModel()
+            {
+                Id = edit.Id,
+                Title = edit.Title,
+                Description= edit.Description,
+                Icon = edit.Icon,
+            };
+        }
+
+        public async Task<CreateActivityResult> CreateActivity(CreateActivityViewModel create)
+        {
+            if (await _activityRepository.GetActivityByTitle(create.Title))
+            {
+                return CreateActivityResult.Error;
+            }
+
+            var activity = new Activity()
+            {
+                Title = create.Title,
+                Description = create.Description,
+                Icon = create.Icon,
+            };
+
+            await _activityRepository.CreateActivity(activity);
+            await _activityRepository.SaveChanges();
+
+            return CreateActivityResult.Success;
+        }
+
+        public async Task<EditActivityResult> EditActivity(EditActivityViewModel edit)
+        {
+            var activity = await _activityRepository.GetActivityById(edit.Id);
+
+            if (activity == null)
+            {
+                return EditActivityResult.ActivityNotFound;
+            }
+
+            edit.Title = activity.Title;
+            edit.Description = activity.Description;
+            edit.Icon = activity.Icon;
+            
+            _activityRepository.UpdateActivity(activity);
+            await _activityRepository.SaveChanges();
+
+            return EditActivityResult.Success;
         }
 
         #endregion

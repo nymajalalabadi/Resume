@@ -1,15 +1,16 @@
-﻿using Resume.DAL.Models.Common;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Resume.DAL.Models.Activity
+namespace Resume.DAL.ViewModels.Activity
 {
-    public class Activity : BaseEntity<int>
+    public class EditActivityViewModel
     {
+        public int Id { get; set; }
+
         [Display(Name = "عنوان")]
         [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
         [MaxLength(350, ErrorMessage = "تعداد کاراکتر شده بیش از حد مجاز است")]
@@ -17,12 +18,19 @@ namespace Resume.DAL.Models.Activity
 
         [Display(Name = "توضیحات")]
         [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
-        [MaxLength(700, ErrorMessage = "تعداد کاراکتر شده بیش از حد مجاز است")]
+        [MaxLength(750, ErrorMessage = "تعداد کاراکتر شده بیش از حد مجاز است")]
         public string Description { get; set; }
 
         [Display(Name = "ایکون")]
         [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
         [MaxLength(200, ErrorMessage = "تعداد کاراکتر شده بیش از حد مجاز است")]
         public string Icon { get; set; }
+    }
+
+    public enum EditActivityResult
+    {
+        Success,
+        Error,
+        ActivityNotFound
     }
 }

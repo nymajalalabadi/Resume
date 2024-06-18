@@ -1,4 +1,5 @@
-﻿using Resume.DAL.ViewModels.Activity;
+﻿using Resume.DAL.Models.Activity;
+using Resume.DAL.ViewModels.Activity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,12 @@ namespace Resume.Bussines.Services.Interface
         #region Methods
 
         Task<FilterActivityViewModel> filterActivityViewModel(FilterActivityViewModel filter);
+
+        Task<EditActivityViewModel?> GetActivityById(int id);
+
+        Task<CreateActivityResult> CreateActivity(CreateActivityViewModel create);
+
+        Task<EditActivityResult> EditActivity(EditActivityViewModel edit);
 
         #endregion
     }

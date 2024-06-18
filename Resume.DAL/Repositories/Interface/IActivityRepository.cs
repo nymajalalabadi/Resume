@@ -14,6 +14,16 @@ namespace Resume.DAL.Repositories.Interface
 
         Task<IQueryable<Activity>> GetAllActivities();
 
+        Task<Activity?> GetActivityById(int id);
+
+        Task<bool> GetActivityByTitle(string title);
+
+        Task CreateActivity(Activity activity);
+
+        void UpdateActivity(Activity activity);
+
+        Task SaveChanges();
+
         #endregion
     }
 }

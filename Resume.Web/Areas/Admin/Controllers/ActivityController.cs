@@ -19,11 +19,36 @@ namespace Resume.Web.Areas.Admin.Controllers
 
         #region Actions
 
+        [HttpGet]
         public async Task<IActionResult> List(FilterActivityViewModel filter)
         {
             var result = await _activityService.filterActivityViewModel(filter);
 
             return View(result);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(CreateActivityViewModel create)
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Edit()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Edit(EditActivityViewModel edit)
+        {
+            return View();
         }
 
         #endregion
