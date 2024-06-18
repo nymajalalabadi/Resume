@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Resume.DAL.Models.AboutMe;
+using Resume.DAL.Models.Activity;
 using Resume.DAL.Models.ContactUs;
 using Resume.DAL.Models.User;
 using System;
@@ -28,6 +29,8 @@ namespace Resume.DAL.Context
         public DbSet<ContactUs> ContactUs { get; set; }
 
         public DbSet<AboutMe> aboutMes { get; set; }
+
+        public DbSet<Activity> Activities { get; set; }
 
         #endregion
 

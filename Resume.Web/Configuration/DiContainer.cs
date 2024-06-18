@@ -17,6 +17,8 @@ namespace Resume.Web.Configuration
 
             services.AddScoped<IAboutMeRepository, AboutMeRepository>();
 
+            services.AddScoped<IActivityRepository, ActivityRepository>();
+
             #endregion
 
             #region Services
@@ -26,6 +28,8 @@ namespace Resume.Web.Configuration
             services.AddScoped<IContactUsService, ContactUsService>();
 
             services.AddScoped<IAboutMeService, AboutMeService>();
+
+            services.AddScoped<IActivityService, ActivityService>();
 
             services.AddScoped<IEmailService, EmailService>();
             services.AddScoped<IViewRenderService, ViewRenderService>();
