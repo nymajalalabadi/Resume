@@ -1,4 +1,5 @@
 ﻿using Resume.DAL.Context;
+using Resume.DAL.Models.Activity;
 using Resume.DAL.Repositories.Interface;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,15 @@ namespace Resume.DAL.Repositories.Implementation
         public ActivityRepository(ResumeContext context)
         {
             _context = context;
+        }
+
+        #endregion
+
+        #region Methods
+
+        public async Task<IQueryable<Activity>> GetAllActivities()
+        {
+            return _context.Activities.AsQueryable();
         }
 
         #endregion

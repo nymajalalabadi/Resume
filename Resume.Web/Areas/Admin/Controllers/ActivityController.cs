@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Resume.Bussines.Services.Interface;
+using Resume.DAL.ViewModels.Activity;
 
 namespace Resume.Web.Areas.Admin.Controllers
 {
@@ -16,9 +17,15 @@ namespace Resume.Web.Areas.Admin.Controllers
 
         #endregion
 
-        public IActionResult Index()
+        #region Actions
+
+        public async Task<IActionResult> List(FilterActivityViewModel filter)
         {
-            return View();
+            var result = await _activityService.filterActivityViewModel(filter);
+
+            return View(result);
         }
+
+        #endregion
     }
 }
