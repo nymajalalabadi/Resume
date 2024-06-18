@@ -20,6 +20,8 @@ namespace Resume.Bussines.Services.Interface
 
         Task<EditActivityResult> EditActivity(EditActivityViewModel edit);
 
+        Task<List<ActivityDetailsViewModel>> GetAllActivities();
+
         #endregion
     }
 }

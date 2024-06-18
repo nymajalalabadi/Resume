@@ -1,4 +1,5 @@
-﻿using Resume.Bussines.Services.Interface;
+﻿using Microsoft.EntityFrameworkCore;
+using Resume.Bussines.Services.Interface;
 using Resume.DAL.Models.Activity;
 using Resume.DAL.Repositories.Interface;
 using Resume.DAL.ViewModels.Activity;
@@ -115,6 +116,18 @@ namespace Resume.Bussines.Services.Implementation
             return EditActivityResult.Success;
         }
 
-        #endregion
-    }
+		public async Task<List<ActivityDetailsViewModel>> GetAllActivities()
+        {
+            var activity = await _activityRepository.GetAllActivities();
+
+            return await activity.Select(a => new ActivityDetailsViewModel() 
+            { 
+                Title = a.Title,
+                Description = a.Description,
+                Icon = a.Icon,
+            }).ToListAsync();
+		}
+
+		#endregion
+	}
 }

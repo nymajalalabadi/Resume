@@ -31,7 +31,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="active">
+                <li>
                     <a href="#" onClick="return false;" class="menu-toggle">
                         <i class="menu-icon ti-email"></i>
                         <span>مدیریت تماس با ما</span>
@@ -42,7 +42,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="active">
+                <li>
                     <a href="#" onClick="return false;" class="menu-toggle">
                         <i class="menu-icon ti-id-badge"></i>
                         <span>مدیریت درباره ی من</span>
@@ -53,14 +53,19 @@
                         </li>
                     </ul>
                 </li>
-                <li class="active">
+                <li>
                     <a href="#" onClick="return false;" class="menu-toggle">
                         <i class="menu-icon ti-id-badge"></i>
-                        <span>مدیریت درباره ی من</span>
+                        <span> فعالیت های من </span>
                     </a>
                     <ul class="ml-menu">
                         <li class="active">
-                            <a asp-area="Admin" asp-controller="Activity" asp-action="List">کارهای که انجام میدم</a>
+                            <a asp-area="Admin" asp-controller="Activity" asp-action="List">لیست فعالیت های من </a>
+                        </li>
+                    </ul>
+                    <ul class="ml-menu">
+                        <li class="active">
+                            <a asp-area="Admin" asp-controller="Activity" asp-action="create">افزودن فعالیت های من </a>
                         </li>
                     </ul>
                 </li>
