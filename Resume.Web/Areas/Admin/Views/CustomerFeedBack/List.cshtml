@@ -62,7 +62,7 @@
                                     <th scope="row">@customer.Id</th>
                                     <td>@customer.Name</td>
                                     <td>@customer.Description</td>
-                                    <td><img src="@(string.IsNullOrEmpty(customer.Avatar) ? SiteTools.DefaultImageName : (SiteTools.CustomerFeedBackAvatar + customer.Avatar))" alt="customer.Name" class="border" width="100px" height="100px"></td>
+                                    <td><img src="@(string.IsNullOrEmpty(customer.Avatar) ? SiteTools.DefaultImageName : (SiteTools.CustomerFeedBackAvatar + customer.Avatar))" alt="@customer.Name" class="border" width="100px" height="100px"></td>
                                     <td>
                                         <a asp-area="Admin" asp-controller="CustomerFeedBack" asp-action="Update" asp-route-id="@customer.Id" class="text-warning">
                                             <i class="fa fa-pen"></i>

@@ -12,7 +12,7 @@ namespace Resume.DAL.ViewModels.CustomerFeedBack
 		public int Id { get; set; }
 
 		[Display(Name = "آواتار")]
-		public string Avatar { get; set; }
+		public string? Avatar { get; set; }
 
 		[Display(Name = "نام")]
 		public string Name { get; set; }

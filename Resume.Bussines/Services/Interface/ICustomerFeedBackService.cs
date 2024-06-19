@@ -1,4 +1,5 @@
 ﻿using Resume.DAL.Models.CustomerFeedBack;
+using Resume.DAL.ViewModels.Activity;
 using Resume.DAL.ViewModels.CustomerFeedBack;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,8 @@ namespace Resume.Bussines.Services.Interface
 
 		Task<EditCustomerFeedBackResult> EditCustomerFeedBack(EditCustomerFeedBackViewModel edit);
 
-		#endregion
-	}
+        Task<List<CustomerFeedBackViewModel>> GetAllCustomerFeedBacks();
+
+        #endregion
+    }
 }

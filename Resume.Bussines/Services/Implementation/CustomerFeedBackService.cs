@@ -1,8 +1,11 @@
-﻿using Resume.Bussines.Generators;
+﻿using Microsoft.EntityFrameworkCore;
+using Resume.Bussines.Generators;
 using Resume.Bussines.Services.Interface;
 using Resume.Bussines.Tools;
 using Resume.DAL.Models.CustomerFeedBack;
+using Resume.DAL.Repositories.Implementation;
 using Resume.DAL.Repositories.Interface;
+using Resume.DAL.ViewModels.Activity;
 using Resume.DAL.ViewModels.CustomerFeedBack;
 using System;
 using System.Collections.Generic;
@@ -152,6 +155,18 @@ namespace Resume.Bussines.Services.Implementation
 			return CustomerFeedBack;
 		}
 
-		#endregion
-	}
+        public async Task<List<CustomerFeedBackViewModel>> GetAllCustomerFeedBacks()
+		{
+            var customer = await _customerFeedBackRepository.GetAllCustomerFeedBacks();
+
+            return await customer.Select(a => new CustomerFeedBackViewModel()
+            {
+                Name = a.Name,
+                Description = a.Description,
+                Avatar = a.Avatar,
+            }).ToListAsync();
+        }
+
+        #endregion
+    }
 }

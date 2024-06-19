@@ -13,11 +13,11 @@ namespace Resume.Bussines.Tools
 
         public static string DefaultImageName { get; set; } = "/site/img/main-photo.svg";
 
-        #endregion
+		#endregion
 
-        #region About me
+		#region About me
 
-        public static string AboutMeAvatar { get; set; } = "/Img/AboutMe/";
+		public static string AboutMeAvatar { get; set; } = "/Img/AboutMe/";
 
 		#endregion
 
