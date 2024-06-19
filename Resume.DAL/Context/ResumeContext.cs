@@ -2,6 +2,7 @@
 using Resume.DAL.Models.AboutMe;
 using Resume.DAL.Models.Activity;
 using Resume.DAL.Models.ContactUs;
+using Resume.DAL.Models.Education;
 using Resume.DAL.Models.User;
 using System;
 using System.Collections.Generic;
@@ -31,6 +32,8 @@ namespace Resume.DAL.Context
         public DbSet<AboutMe> aboutMes { get; set; }
 
         public DbSet<Activity> Activities { get; set; }
+
+        public DbSet<Education> Educations { get; set; }
 
         #endregion
 
