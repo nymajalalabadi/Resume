@@ -21,6 +21,8 @@ namespace Resume.Web.Configuration
 
             services.AddScoped<IEducationRepository, EducationRepository>();
 
+            services.AddScoped<ICustomerFeedBackRepository, CustomerFeedBackRepository>();
+
             #endregion
 
             #region Services
@@ -34,6 +36,8 @@ namespace Resume.Web.Configuration
             services.AddScoped<IActivityService, ActivityService>();
 
             services.AddScoped<IEducationService, EducationService>();
+
+            services.AddScoped<ICustomerFeedBackService, CustomerFeedBackService>();
 
             services.AddScoped<IEmailService, EmailService>();
             services.AddScoped<IViewRenderService, ViewRenderService>();
