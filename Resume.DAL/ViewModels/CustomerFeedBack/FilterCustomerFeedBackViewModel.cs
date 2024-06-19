@@ -12,8 +12,5 @@ namespace Resume.DAL.ViewModels.CustomerFeedBack
 	{
 		[Display(Name = "نام")]
 		public string Name { get; set; }
-
-		[Display(Name = "توضیحات")]
-		public string Description { get; set; }
 	}
 }

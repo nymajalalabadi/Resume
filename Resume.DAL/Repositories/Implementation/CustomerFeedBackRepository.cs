@@ -1,4 +1,6 @@
-﻿using Resume.DAL.Context;
+﻿using Microsoft.EntityFrameworkCore;
+using Resume.DAL.Context;
+using Resume.DAL.Models.CustomerFeedBack;
 using Resume.DAL.Repositories.Interface;
 using System;
 using System.Collections.Generic;
@@ -23,7 +25,30 @@ namespace Resume.DAL.Repositories.Implementation
 
 		#region Methods
 
+		public async Task<IQueryable<CustomerFeedBack>> GetAllCustomerFeedBacks()
+		{
+			return _context.CustomerFeedBacks.AsQueryable();
+		}
 
+		public async Task AddCustomerFeedBack(CustomerFeedBack customerFeedBack)
+		{
+			await _context.CustomerFeedBacks.AddAsync(customerFeedBack);
+		}
+
+		public async Task<CustomerFeedBack?> GetCustomerFeedBackById(int id)
+		{
+			return await _context.CustomerFeedBacks.FirstOrDefaultAsync(c => c.Id.Equals(id));
+		}
+
+		public void UpdateCustomerFeedBack(CustomerFeedBack customerFeedBack)
+		{
+		   _context.CustomerFeedBacks.Update(customerFeedBack);
+		}
+
+		public async Task SaveChanges()
+		{
+			await _context.SaveChangesAsync();
+		}
 
 		#endregion
 	}

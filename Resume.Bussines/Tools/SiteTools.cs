@@ -19,6 +19,12 @@ namespace Resume.Bussines.Tools
 
         public static string AboutMeAvatar { get; set; } = "/Img/AboutMe/";
 
-        #endregion
-    }
+		#endregion
+
+		#region Customer Feed Back
+
+		public static string CustomerFeedBackAvatar { get; set; } = "/Img/CustomerFeedBack/";
+
+		#endregion
+	}
 }

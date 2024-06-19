@@ -10,6 +10,8 @@ namespace Resume.DAL.Repositories.Interface
 	{
 		#region methods
 
+
+
 		#endregion
 	}
 }

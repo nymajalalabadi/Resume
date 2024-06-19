@@ -9,7 +9,7 @@ namespace Resume.DAL.ViewModels.CustomerFeedBack
 {
 	public class CustomerFeedBackViewModel
 	{
-		public long Id { get; set; }
+		public int Id { get; set; }
 
 		[Display(Name = "آواتار")]
 		public string Avatar { get; set; }
