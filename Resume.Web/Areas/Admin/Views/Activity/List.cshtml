@@ -1,4 +1,5 @@
 ﻿@using Resume.DAL.ViewModels.Activity
+@using Resume.Bussines.Extensions
 @model FilterActivityViewModel
 
 @{
@@ -51,7 +52,7 @@
                                 <th>عنوان</th>
                                 <th>توضیحات</th>
                                 <th>ایکون ها</th>
-                                <th>ایمیل</th>
+                                <th>عرض ستون آیتم</th>
                                 <th>تاریخ ثبت</th>
                                 <th>عملیات</th>
                             </tr>
@@ -64,7 +65,8 @@
                                     <td>@user.Title</td>
                                     <td>@user.Description</td>
                                     <td>@user.Icon</td>
-                                    <td>@user.CreateDate</td>
+                                    <td>@user.ColumnLg</td>
+                                    <td>@user.CreateDate.ToShamsi()</td>
                                     <td>
                                         <a asp-area="Admin" asp-controller="Activity" asp-action="Update" asp-route-id="@user.Id" class="text-warning">
                                             <i class="fa fa-pen"></i>

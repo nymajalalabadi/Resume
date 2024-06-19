@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Resume.DAL.Context;
 
@@ -11,9 +12,11 @@ using Resume.DAL.Context;
 namespace Resume.DAL.Migrations
 {
     [DbContext(typeof(ResumeContext))]
-    partial class ResumeContextModelSnapshot : ModelSnapshot
+    [Migration("20240619065135_AddActivityTbl")]
+    partial class AddActivityTbl
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -79,9 +82,6 @@ namespace Resume.DAL.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("ColumnLg")
-                        .HasColumnType("int");
 
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
@@ -202,7 +202,7 @@ namespace Resume.DAL.Migrations
                         new
                         {
                             Id = 1,
-                            CreateDate = new DateTime(2024, 6, 19, 10, 54, 29, 181, DateTimeKind.Local).AddTicks(7780),
+                            CreateDate = new DateTime(2024, 6, 19, 10, 21, 31, 692, DateTimeKind.Local).AddTicks(2351),
                             Email = "nyma@gmail.com",
                             FirstName = "نیما",
                             IsActive = true,

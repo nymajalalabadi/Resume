@@ -48,6 +48,7 @@ namespace Resume.Bussines.Services.Implementation
                 Description = activity.Description,
                 Icon = activity.Icon,
                 CreateDate = activity.CreateDate,
+                ColumnLg = activity.ColumnLg,
             });
 
             #region paging
@@ -74,6 +75,7 @@ namespace Resume.Bussines.Services.Implementation
                 Title = edit.Title,
                 Description= edit.Description,
                 Icon = edit.Icon,
+                ColumnLg= edit.ColumnLg,
             };
         }
 
@@ -89,6 +91,7 @@ namespace Resume.Bussines.Services.Implementation
                 Title = create.Title,
                 Description = create.Description,
                 Icon = create.Icon,
+                ColumnLg = create.ColumnLg,
             };
 
             await _activityRepository.CreateActivity(activity);
@@ -106,9 +109,10 @@ namespace Resume.Bussines.Services.Implementation
                 return EditActivityResult.ActivityNotFound;
             }
 
-            edit.Title = activity.Title;
-            edit.Description = activity.Description;
-            edit.Icon = activity.Icon;
+            activity.Title = edit.Title;
+            activity.Description = edit.Description;
+			activity.ColumnLg = edit.ColumnLg;
+            activity.Icon = edit.Icon;
             
             _activityRepository.UpdateActivity(activity);
             await _activityRepository.SaveChanges();
@@ -125,6 +129,7 @@ namespace Resume.Bussines.Services.Implementation
                 Title = a.Title,
                 Description = a.Description,
                 Icon = a.Icon,
+                ColumnLg = a.ColumnLg,
             }).ToListAsync();
 		}
 
