@@ -102,7 +102,7 @@ namespace Resume.Bussines.Services.Implementation
 		{
 			var customerFeedBack = await _customerFeedBackRepository.GetCustomerFeedBackById(edit.Id);
 
-			if (customerFeedBack != null)
+			if (customerFeedBack == null)
 			{
 				return EditCustomerFeedBackResult.CustomerFeedBackNotFound;
 			}

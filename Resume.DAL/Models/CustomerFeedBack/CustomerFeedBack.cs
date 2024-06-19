@@ -16,7 +16,7 @@ namespace Resume.DAL.Models.CustomerFeedBack
 		public string Name { get; set; }
 
 		[Display(Name = "آواتار")]
-		public string Avatar { get; set; }
+		public string? Avatar { get; set; }
 
 		[Display(Name = "توضیحات")]
 		[Required(ErrorMessage = "لطفا {0} را وارد نمایید")]

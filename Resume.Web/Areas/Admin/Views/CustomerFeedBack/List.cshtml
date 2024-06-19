@@ -1,0 +1,85 @@
+﻿@using Resume.Bussines.Tools
+@using Resume.DAL.ViewModels.CustomerFeedBack
+@model FilterCustomerFeedBackViewModel
+
+@{
+    ViewData["Title"] = "لیست نظرات کابران";
+}
+
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mb-4">
+        <div class="card">
+            <div class="header">
+                <h2>
+                    فیلتر ها
+                </h2>
+            </div>
+            <div class="body">
+                <form asp-area="Admin" asp-controller="CustomerFeedBack" asp-action="List" method="get" id="filter-search">
+                    <input type="hidden" asp-for="PageId" />
+                    <div class="row clearfix">
+                        <div class="col-sm-12  col-md-4">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" asp-for="Name" class="form-control">
+                                    <label asp-for="Name" class="form-label"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <button class="btn btn-success">جستجو</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="header">
+                <h2>
+                    <strong>@ViewData["Title"]</strong>
+                </h2>
+            </div>
+            <div class="body table-responsive">
+                @if (Model.Entities != null && Model.Entities.Any())
+                {
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>آیدی</th>
+                                <th>اسم کاربر</th>
+                                <th>توضیحات</th>
+                                <th> عکس</th>
+                                <th>عملیات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var customer in Model.Entities)
+                            {
+                                <tr>
+                                    <th scope="row">@customer.Id</th>
+                                    <td>@customer.Name</td>
+                                    <td>@customer.Description</td>
+                                    <td><img src="@(string.IsNullOrEmpty(customer.Avatar) ? SiteTools.DefaultImageName : (SiteTools.CustomerFeedBackAvatar + customer.Avatar))" alt="customer.Name" class="border" width="100px" height="100px"></td>
+                                    <td>
+                                        <a asp-area="Admin" asp-controller="CustomerFeedBack" asp-action="Update" asp-route-id="@customer.Id" class="text-warning">
+                                            <i class="fa fa-pen"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <partial name="_AdminPagination" model="@Model.GetCurrentPaging()" />
+                }
+                else
+                {
+                    <partial name="_AdminNotFound" />
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
