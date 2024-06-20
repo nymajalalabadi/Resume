@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Resume.DAL.Models.CustomerFeedBack;
+using Resume.DAL.Models.Education;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,10 +10,18 @@ namespace Resume.DAL.Repositories.Interface
 {
 	public interface IEducationRepository
 	{
-		#region methods
+        #region methods
 
+        Task<IQueryable<Education>> GetAllEducations();
 
+        Task<Education?> GetEducationById(int id);
 
-		#endregion
-	}
+        Task AddEducation(Education Education);
+
+        void UpdateEducation(Education Education);
+
+        Task SaveChanges();
+
+        #endregion
+    }
 }
