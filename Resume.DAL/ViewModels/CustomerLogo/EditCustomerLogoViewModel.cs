@@ -24,4 +24,11 @@ namespace Resume.DAL.ViewModels.CustomerLogo
         [Display(Name = "لینک")]
         public string? Link { get; set; }
     }
+
+    public enum EditCustomerLogoResult
+    {
+        Success,
+        Error,
+        CustomerLogoNotFound,
+    }
 }
