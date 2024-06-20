@@ -3,6 +3,7 @@ using Resume.DAL.Models.AboutMe;
 using Resume.DAL.Models.Activity;
 using Resume.DAL.Models.ContactUs;
 using Resume.DAL.Models.CustomerFeedBack;
+using Resume.DAL.Models.CustomerLogo;
 using Resume.DAL.Models.Education;
 using Resume.DAL.Models.User;
 using System;
@@ -37,6 +38,8 @@ namespace Resume.DAL.Context
         public DbSet<Education> Educations { get; set; }
 
         public DbSet<CustomerFeedBack> CustomerFeedBacks { get; set; }
+
+        public DbSet<CustomerLogo> CustomerLogos { get; set; }
 
         #endregion
 
