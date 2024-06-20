@@ -29,7 +29,11 @@ namespace Resume.Bussines.Tools
 
         #region Customer Logo 
 
+
+
         public static string CustomerLogoAvatar { get; set; } = "/Img/CustomerLogo/";
+
+        public static string DefaultCustomerLogoAvatar { get; set; } = "/site/img/logo-1.svg";
 
         #endregion
     }

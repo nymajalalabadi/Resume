@@ -1,31 +1,30 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Resume.Bussines.Services.Interface;
-using Resume.DAL.ViewModels.CustomerFeedBack;
+using Resume.DAL.ViewModels.CustomerLogo;
 
 namespace Resume.Web.Areas.Admin.Controllers
 {
-    public class CustomerFeedBackController : AdminBaseController
-	{
-		#region Constructor
+    public class CustomerLogoController : AdminBaseController
+    {
+        #region Constructor
 
-		private readonly ICustomerFeedBackService _customerFeedBackService;
+        private readonly ICustomerLogoService _customerLogoService;
 
-		public CustomerFeedBackController(ICustomerFeedBackService customerFeedBackService)
-		{
-			_customerFeedBackService = customerFeedBackService;
-		}
+        public CustomerLogoController(ICustomerLogoService customerLogoService)
+        {
+            _customerLogoService = customerLogoService;
+        }
 
-		#endregion
+        #endregion
 
-		#region Actions
+        #region Actions
 
-		[HttpGet]
-		public async Task<IActionResult> List(FilterCustomerFeedBackViewModel filter)
-		{
-			var result = await _customerFeedBackService.FilterCustomerFeedBack(filter);
+        public async Task<IActionResult> List(FilterCustomerLogoViewModel filter)
+        {
+            var result = await _customerLogoService.FilterCustomerLogo(filter);
 
-			return View(result);
-		}
+            return View(result);
+        }
 
         [HttpGet]
         public async Task<IActionResult> Create()
@@ -34,21 +33,21 @@ namespace Resume.Web.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(CreateCustomerFeedBackViewModel create)
+        public async Task<IActionResult> Create(CreateCustomerLogoViewModel create)
         {
             if (!ModelState.IsValid)
             {
                 return View(create);
             }
-            var result = await _customerFeedBackService.CreateCustomerFeedBack(create);
+            var result = await _customerLogoService.CreateCustomerLogo(create);
 
             switch (result)
             {
-                case CreateCustomerFeedBackResult.Success:
+                case CreateCustomerLogoResult.Success:
                     TempData[SuccessMessage] = "کاربر جدید با موفقیت ثبت شد.";
                     return RedirectToAction("List");
 
-                case CreateCustomerFeedBackResult.Error:
+                case CreateCustomerLogoResult.Error:
                     TempData[ErrorMessage] = "خطای رخ داده است";
                     break;
             }
@@ -59,7 +58,7 @@ namespace Resume.Web.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> Update(int id)
         {
-            var customer = await _customerFeedBackService.GetCustomerFeedBackById(id);
+            var customer = await _customerLogoService.GetCustomerLogoById(id);
 
             if (customer == null)
             {
@@ -70,25 +69,25 @@ namespace Resume.Web.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Update(EditCustomerFeedBackViewModel edit)
+        public async Task<IActionResult> Update(EditCustomerLogoViewModel edit)
         {
             if (!ModelState.IsValid)
             {
                 return View(edit);
             }
-            var result = await _customerFeedBackService.EditCustomerFeedBack(edit);
+            var result = await _customerLogoService.EditCustomerLogo(edit);
 
             switch (result)
             {
-                case EditCustomerFeedBackResult.Success:
+                case EditCustomerLogoResult.Success:
                     TempData[SuccessMessage] = "ویرایش کاربر با موفقیت ثبت شد";
                     return RedirectToAction("List");
 
-                case EditCustomerFeedBackResult.Error:
+                case EditCustomerLogoResult.Error:
                     TempData[ErrorMessage] = "کاربر شما با مشکل رو به رو شد";
                     break;
 
-                case EditCustomerFeedBackResult.CustomerFeedBackNotFound:
+                case EditCustomerLogoResult.CustomerLogoNotFound:
                     TempData[ErrorMessage] = "کاربر شما پیدا نشد.";
                     break;
             }

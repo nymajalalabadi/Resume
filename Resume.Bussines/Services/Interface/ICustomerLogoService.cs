@@ -12,7 +12,7 @@ namespace Resume.Bussines.Services.Interface
     {
         #region Methods
 
-        Task<FillCustomerLogoViewModel> FilterCustomerLogo(FillCustomerLogoViewModel filter);
+        Task<FilterCustomerLogoViewModel> FilterCustomerLogo(FilterCustomerLogoViewModel filter);
 
         Task<CreateCustomerLogoResult> CreateCustomerLogo(CreateCustomerLogoViewModel create);
 

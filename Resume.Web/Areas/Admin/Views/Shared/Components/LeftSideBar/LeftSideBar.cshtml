@@ -70,7 +70,7 @@
                 <li>
                     <a href="#" onClick="return false;" class="menu-toggle">
                         <i class="menu-icon ti-id-badge"></i>
-                        <span> نظرات کابران</span>
+                        <span> نظرات کاربران</span>
                     </a>
                     <ul class="ml-menu">
                         <li class="active">
@@ -78,6 +78,20 @@
                         </li>
                         <li class="active">
                             <a asp-area="Admin" asp-controller="CustomerFeedBack" asp-action="create"> اضافه کردن نظرات کابران </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" onClick="return false;" class="menu-toggle">
+                        <i class="menu-icon ti-id-badge"></i>
+                        <span>لوگوی کاربران</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li class="active">
+                            <a asp-area="Admin" asp-controller="CustomerLogo" asp-action="List">لیست لوگوی کاربران</a>
+                        </li>
+                        <li class="active">
+                            <a asp-area="Admin" asp-controller="CustomerLogo" asp-action="create">افزودن لوگوی کاربران</a>
                         </li>
                     </ul>
                 </li>

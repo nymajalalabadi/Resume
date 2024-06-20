@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Resume.DAL.ViewModels.CustomerLogo
 {
-    public class FillCustomerLogoViewModel : BasePaging<CustomerLogoViewModel>
+    public class FilterCustomerLogoViewModel : BasePaging<CustomerLogoViewModel>
     {
         [Display(Name = "لینک")]
         public string? Link { get; set; }

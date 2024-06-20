@@ -31,7 +31,7 @@ namespace Resume.Bussines.Services.Implementation
 
         #region Methods
 
-        public async Task<FillCustomerLogoViewModel> FilterCustomerLogo(FillCustomerLogoViewModel filter)
+        public async Task<FilterCustomerLogoViewModel> FilterCustomerLogo(FilterCustomerLogoViewModel filter)
         {
             var query = await _customerLogoRepository.GetAllCustomerLogos();
 
