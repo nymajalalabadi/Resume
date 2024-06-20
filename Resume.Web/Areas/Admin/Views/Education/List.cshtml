@@ -66,9 +66,9 @@
                                 <th>آیدی</th>
                                 <th>عنوان</th>
                                 <th>توضیحات</th>
-                                <th>تاریخ ثبت</th>
                                 <th>تاریخ شروع</th>
                                 <th>تاریخ پایان</th>
+                                <th>تاریخ ثبت</th>
                                 <th>عملیات</th>
                             </tr>
                         </thead>
@@ -80,7 +80,16 @@
                                     <td>@education.Title</td>
                                     <td>@education.Description</td>
                                     <td>@education.StartDate</td>
-                                    <td>@education.EndDate</td>
+                                    <td>
+                                        @if (@education.EndDate.HasValue)
+                                        {
+                                            @education.EndDate
+                                        }
+                                        else
+                                        {
+                                            <div class="badge col-green">در حال ادامه تحصیل هستم</div>
+                                        }
+                                    </td>
                                     <td>@education.CreateDate.ToShamsi()</td>
                                     <td>
                                         <a asp-area="Admin" asp-controller="Education" asp-action="Update" asp-route-id="@education.Id" class="text-warning">

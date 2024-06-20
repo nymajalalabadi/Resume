@@ -69,7 +69,7 @@ namespace Resume.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("aboutMes");
+                    b.ToTable("aboutMes", (string)null);
                 });
 
             modelBuilder.Entity("Resume.DAL.Models.Activity.Activity", b =>
@@ -103,7 +103,7 @@ namespace Resume.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Activities");
+                    b.ToTable("Activities", (string)null);
                 });
 
             modelBuilder.Entity("Resume.DAL.Models.ContactUs.ContactUs", b =>
@@ -152,7 +152,7 @@ namespace Resume.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ContactUs");
+                    b.ToTable("ContactUs", (string)null);
                 });
 
             modelBuilder.Entity("Resume.DAL.Models.CustomerFeedBack.CustomerFeedBack", b =>
@@ -181,7 +181,7 @@ namespace Resume.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CustomerFeedBacks");
+                    b.ToTable("CustomerFeedBacks", (string)null);
                 });
 
             modelBuilder.Entity("Resume.DAL.Models.Education.Education", b =>
@@ -215,7 +215,7 @@ namespace Resume.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Educations");
+                    b.ToTable("Educations", (string)null);
                 });
 
             modelBuilder.Entity("Resume.DAL.Models.User.User", b =>
@@ -259,7 +259,7 @@ namespace Resume.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
 
                     b.HasData(
                         new

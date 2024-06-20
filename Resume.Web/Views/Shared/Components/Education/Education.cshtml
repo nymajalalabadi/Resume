@@ -1,0 +1,23 @@
+﻿using Resume.Bussines.Extensions
+@using Resume.DAL.ViewModels.Education
+@model List<EducationViewModel>
+
+<div class="col-12">
+	<h2 class="title title--h3"><img class="title-icon" src="/site/icons/icon-education.svg" alt=""> تحصیلات</h2>
+	<div class="timeline">
+		<!-- Item -->
+		@if (Model.Any() && Model != null)
+		{
+			@foreach (var education in Model)
+			{
+				<article class="timeline__item">
+					<h5 class="title title--h5 timeline__title">@education.Title</h5>
+					<span class="timeline__period">@education.StartDate-@(@education.EndDate.HasValue ? @education.EndDate : "مشغول به تحصیل هستم")</span>
+					<p class="timeline__description">
+						@education.Description
+					</p>
+				</article>
+			}
+		}
+	</div>
+</div>

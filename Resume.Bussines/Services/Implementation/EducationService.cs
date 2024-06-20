@@ -135,7 +135,7 @@ namespace Resume.Bussines.Services.Implementation
         {
             var educations = await _educationRepository.GetAllEducations();
 
-            return await educations.Select(educations => new EducationViewModel()
+            return await educations.OrderByDescending(e => e.CreateDate).Select(educations => new EducationViewModel()
             {
                 Id = educations.Id,
                 Description = educations.Description,
