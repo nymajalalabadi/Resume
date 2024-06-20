@@ -72,7 +72,7 @@ namespace Resume.Web.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(EditEducationViewModel edit)
+        public async Task<IActionResult> Update(EditEducationViewModel edit)
         {
             if (!ModelState.IsValid)
             {
