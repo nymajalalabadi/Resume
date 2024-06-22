@@ -1,0 +1,23 @@
+﻿@using Resume.Bussines.Tools
+@using Resume.DAL.ViewModels.CustomerLogo
+@model List<CustomerLogoViewModel>
+
+<div class="mt-4">
+	<h2 class="title title--h3">مشتری ها</h2>
+	<div class="swiper-container js-carousel-clients">
+		<div class="swiper-wrapper">
+			@if (Model.Any() && Model != null)
+			{
+				foreach (var customerLogo in Model)
+				{
+					<div class="swiper-slide">
+						<a href="@customerLogo.Link"><img src="@(string.IsNullOrEmpty(customerLogo.Logo) ? SiteTools.DefaultCustomerLogoAvatar : (SiteTools.CustomerLogoAvatar + customerLogo.Logo))" alt="@customerLogo.LogoAlt" /></a>
+					</div>
+				}
+			}
+		</div>
+		<div class="swiper-pagination"></div>
+	</div>
+</div>
+
+

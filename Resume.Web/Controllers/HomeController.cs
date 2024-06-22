@@ -1,20 +1,31 @@
 using Microsoft.AspNetCore.Mvc;
+using Resume.Bussines.Services.Interface;
 using System.Diagnostics;
 
 namespace Resume.Web.Controllers
 {
     public class HomeController : SiteBaseController
     {
-        private readonly ILogger<HomeController> _logger;
+		#region Constructor
 
-        public HomeController(ILogger<HomeController> logger)
+		private readonly IAboutMeService _aboutMeService;
+
+		public HomeController(IAboutMeService aboutMeService)
+		{
+			_aboutMeService = aboutMeService;
+		}
+
+        #endregion
+
+        #region Actions
+
+        public async Task<IActionResult> Index()
         {
-            _logger = logger;
+            var result = await _aboutMeService.GetAboutMeForShowing();
+
+            return View(result);
         }
 
-        public IActionResult Index()
-        {
-            return RedirectToAction("Index", "AboutMe");
-        }
+        #endregion
     }
 }
