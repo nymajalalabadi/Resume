@@ -32,6 +32,6 @@ namespace Resume.DAL.ViewModels.Experience
     {
         Success,
         Error,
-        EducationNotFound
+        ExperienceNotFound
     }
 }

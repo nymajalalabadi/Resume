@@ -1,4 +1,6 @@
-﻿using Resume.DAL.Context;
+﻿using Microsoft.EntityFrameworkCore;
+using Resume.DAL.Context;
+using Resume.DAL.Models.Experience;
 using Resume.DAL.Repositories.Interface;
 using System;
 using System.Collections.Generic;
@@ -23,7 +25,30 @@ namespace Resume.DAL.Repositories.Implementation
 
         #region Methods
 
+        public async Task<IQueryable<Experience>> GetAllExperiences()
+        {
+            return _context.Experiences.AsQueryable();
+        }
 
+        public async Task<Experience?> GetExperienceById(int id)
+        {
+            return await _context.Experiences.FirstOrDefaultAsync(e => e.Id == id);
+        }
+
+        public async Task AddExperience(Experience Experience)
+        {
+            await _context.Experiences.AddAsync(Experience);
+        }
+
+        public void UpdateExperience(Experience Experience)
+        {
+            _context.Experiences.Update(Experience);
+        }
+
+        public async Task SaveChanges()
+        {
+            await _context.SaveChangesAsync();
+        }
 
         #endregion
     }

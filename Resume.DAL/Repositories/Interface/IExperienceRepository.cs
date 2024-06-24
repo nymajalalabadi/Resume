@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Resume.DAL.Models.Education;
+using Resume.DAL.Models.Experience;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +12,15 @@ namespace Resume.DAL.Repositories.Interface
     {
         #region Methods
 
+        Task<IQueryable<Experience>> GetAllExperiences();
 
+        Task<Experience?> GetExperienceById(int id);
+
+        Task AddExperience(Experience Experience);
+
+        void UpdateExperience(Experience Experience);
+
+        Task SaveChanges();
 
         #endregion
     }
