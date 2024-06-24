@@ -5,6 +5,7 @@ using Resume.DAL.Models.ContactUs;
 using Resume.DAL.Models.CustomerFeedBack;
 using Resume.DAL.Models.CustomerLogo;
 using Resume.DAL.Models.Education;
+using Resume.DAL.Models.Experience;
 using Resume.DAL.Models.User;
 using System;
 using System.Collections.Generic;
@@ -36,6 +37,8 @@ namespace Resume.DAL.Context
         public DbSet<Activity> Activities { get; set; }
 
         public DbSet<Education> Educations { get; set; }
+
+        public DbSet<Experience> Experiences { get; set; }
 
         public DbSet<CustomerFeedBack> CustomerFeedBacks { get; set; }
 
