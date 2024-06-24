@@ -1,8 +1,8 @@
-﻿@using Resume.DAL.ViewModels.Education
-@model EditEducationViewModel
+﻿@using Resume.DAL.ViewModels.Experience
+@model CreateExperienceViewModel
 
 @{
-    ViewData["Title"] = "ویرایش تحصیلات من";
+    ViewData["Title"] = "اضافه کردن  تجربه کاری ";
 }
 
 <div class="row clearfix">
@@ -14,9 +14,8 @@
                 </h2>
             </div>
             <div class="body">
-                <form asp-area="Admin" asp-controller="Education" asp-action="Update" method="post">
+                <form asp-area="Admin" asp-controller="Experience" asp-action="Create" method="post">
                     <div class="row clearfix">
-                        <input type="hidden" asp-for="Id" />
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <div class="form-line">
@@ -28,7 +27,7 @@
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-6">
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="date" asp-for="StartDate" class="form-control" placeholder="شروع تحصیلات">
+                                    <input type="date" asp-for="StartDate" class="form-control" placeholder="شروع کار">
                                     <span asp-validation-for="StartDate"></span>
                                 </div>
                             </div>
@@ -36,7 +35,7 @@
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-6">
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="date" asp-for="EndDate" class="form-control" placeholder="پایان تحصیلات">
+                                    <input type="date" asp-for="EndDate" class="form-control" placeholder="پایان کار">
                                     <span asp-validation-for="EndDate"></span>
                                 </div>
                             </div>
@@ -50,7 +49,7 @@
                             </div>
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <button type="submit" class="btn btn-warning btn-lg m-l-15 waves-effect">ویرایش</button>
+                            <button type="submit" class="btn btn-success btn-lg m-l-15 waves-effect">ثبت</button>
                         </div>
                     </div>
                 </form>

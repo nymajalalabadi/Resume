@@ -28,5 +28,7 @@ namespace Resume.DAL.ViewModels.Experience
         [Display(Name = "توضیحات")]
         [MaxLength(1000, ErrorMessage = "{0} نمیتواند بیشتر از {1} کاراکتر باشد")]
         public string Description { get; set; }
+
+        public DateTime CreateDate { get; set; }
     }
 }

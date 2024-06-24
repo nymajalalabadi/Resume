@@ -1,10 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Resume.Bussines.Services.Interface;
-using Resume.DAL.Models.Education;
 using Resume.DAL.Models.Experience;
-using Resume.DAL.Repositories.Implementation;
 using Resume.DAL.Repositories.Interface;
-using Resume.DAL.ViewModels.Education;
 using Resume.DAL.ViewModels.Experience;
 
 namespace Resume.Bussines.Services.Implementation
@@ -55,7 +52,8 @@ namespace Resume.Bussines.Services.Implementation
                 Title = e.Title,
                 StartDate = e.StartDate,
                 EndDate = e.EndDate,
-                Description = e.Description
+                Description = e.Description,
+                CreateDate = e.CreateDate,
             });
 
             #region paging

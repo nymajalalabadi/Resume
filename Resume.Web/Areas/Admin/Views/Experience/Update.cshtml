@@ -1,8 +1,8 @@
-﻿@using Resume.DAL.ViewModels.Education
-@model EditEducationViewModel
+﻿@using Resume.DAL.ViewModels.Experience
+@model EditExperienceViewModel
 
 @{
-    ViewData["Title"] = "ویرایش تحصیلات من";
+    ViewData["Title"] = "ویرایش تجربه کاری من";
 }
 
 <div class="row clearfix">
@@ -14,7 +14,7 @@
                 </h2>
             </div>
             <div class="body">
-                <form asp-area="Admin" asp-controller="Education" asp-action="Update" method="post">
+                <form asp-area="Admin" asp-controller="Experience" asp-action="Update" method="post">
                     <div class="row clearfix">
                         <input type="hidden" asp-for="Id" />
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -28,7 +28,7 @@
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-6">
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="date" asp-for="StartDate" class="form-control" placeholder="شروع تحصیلات">
+                                    <input type="date" asp-for="StartDate" class="form-control" placeholder="شروع کار">
                                     <span asp-validation-for="StartDate"></span>
                                 </div>
                             </div>
@@ -36,7 +36,7 @@
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-6">
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="date" asp-for="EndDate" class="form-control" placeholder="پایان تحصیلات">
+                                    <input type="date" asp-for="EndDate" class="form-control" placeholder="پایان کار">
                                     <span asp-validation-for="EndDate"></span>
                                 </div>
                             </div>

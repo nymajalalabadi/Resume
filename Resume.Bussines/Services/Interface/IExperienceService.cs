@@ -1,10 +1,4 @@
-﻿using Resume.DAL.ViewModels.Education;
-using Resume.DAL.ViewModels.Experience;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Resume.DAL.ViewModels.Experience;
 
 namespace Resume.Bussines.Services.Interface
 {
