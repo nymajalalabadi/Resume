@@ -1,5 +1,21 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@using Resume.DAL.ViewModels.Experience
+@model List<ExperienceViewModel>
+
+<div class="col-12">
+	<h2 class="title title--h3"><img class="title-icon" src="/site/icons/icon-experience.svg" alt=""> تجربه</h2>
+	<div class="timeline">
+		@if (Model.Any() && Model != null)
+		{
+			@foreach (var experience in Model)
+			{
+				<article class="timeline__item">
+					<h5 class="title title--h5 timeline__title">@experience.Title</h5>
+					<span class="timeline__period">@experience.StartDate-@(@experience.EndDate.HasValue ? @experience.EndDate : "مشغول به کار هستم")</span>
+					<p class="timeline__description">
+						@experience.Description
+					</p>
+				</article>
+			}
+		}
+	</div>
+</div>
