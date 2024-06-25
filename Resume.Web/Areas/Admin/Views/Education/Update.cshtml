@@ -20,24 +20,27 @@
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" asp-for="Title" class="form-control" placeholder="عنوان">
+                                    <input type="text" asp-for="Title" class="form-control" >
                                     <span asp-validation-for="Title"></span>
+                                    <label asp-for="Title" class="form-label"></label>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-6">
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="date" asp-for="StartDate" class="form-control" placeholder="شروع تحصیلات">
+                                    <input type="date" asp-for="StartDate" class="form-control">
                                     <span asp-validation-for="StartDate"></span>
+                                    <label asp-for="StartDate" class="form-label"></label>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-6">
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="date" asp-for="EndDate" class="form-control" placeholder="پایان تحصیلات">
+                                    <input type="date" asp-for="EndDate" class="form-control">
                                     <span asp-validation-for="EndDate"></span>
+                                    <label asp-for="EndDate" class="form-label"></label>
                                 </div>
                             </div>
                         </div>
@@ -46,6 +49,7 @@
                                 <div class="form-line">
                                     <textarea type="text" asp-for="Description" class="form-control" placeholder="توضیحات"></textarea>
                                     <span asp-validation-for="Description"></span>
+                                    <label asp-for="Description" class="form-label"></label>
                                 </div>
                             </div>
                         </div>

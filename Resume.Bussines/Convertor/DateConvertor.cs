@@ -9,7 +9,7 @@ namespace Resume.Bussines.Convertor
 {
     public static class DateConvertor
     {
-        public static string ToShamsi(this DateOnly value)
+        public static string ToShams(this DateOnly value)
         {
             PersianCalendar persianCalendar = new PersianCalendar();
 

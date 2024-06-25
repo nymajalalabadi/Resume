@@ -135,6 +135,7 @@ namespace Resume.Bussines.Services.Implementation
                 Title = e.Title,
                 Description = e.Description,
                 StartDate = e.StartDate,
+                EndDate = e.EndDate,
             }).ToListAsync();
         }
 

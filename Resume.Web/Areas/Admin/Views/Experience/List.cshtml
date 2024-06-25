@@ -1,4 +1,5 @@
 ﻿@using Resume.Bussines.Extensions
+@using Resume.Bussines.Convertor
 @using Resume.DAL.ViewModels.Experience
 @model FilterExperienceViewModel
 
@@ -79,11 +80,11 @@
                                     <th scope="row">@experience.Id</th>
                                     <td>@experience.Title</td>
                                     <td>@experience.Description</td>
-                                    <td>@experience.StartDate</td>
+                                    <td>@experience.StartDate.ToShams()</td>
                                     <td>
                                         @if (@experience.EndDate.HasValue)
                                         {
-                                            @experience.EndDate
+                                            @experience.EndDate.Value.ToShams()
                                         }
                                         else
                                         {
