@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using Resume.DAL.Context;
 using Resume.Web.Configuration;
+using System.Text.Encodings.Web;
+using System.Text.Unicode;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,6 +35,13 @@ builder.Services.AddAuthentication(options =>
     options.LogoutPath = "/logout";
     options.ExpireTimeSpan = TimeSpan.FromDays(7);
 });
+
+#endregion
+
+#region Encoder 
+
+builder.Services.AddSingleton<HtmlEncoder>(
+    HtmlEncoder.Create(allowedRanges: new[] { UnicodeRanges.All })); //translate For Notifications
 
 #endregion
 
