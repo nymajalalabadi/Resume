@@ -40,7 +40,8 @@ namespace Resume.Bussines.Services.Implementation
 			{
 				Id = s.Id,
 				Title = s.Title,
-				Percent = s.Percent
+				Percent = s.Percent,
+				CreateDate = s.CreateDate,
 			});
 
 			#region paging

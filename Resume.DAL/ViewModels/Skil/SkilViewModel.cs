@@ -22,5 +22,7 @@ namespace Resume.DAL.ViewModels.Skil
 		[MinLength(1, ErrorMessage = "{0} نمیتواند کمتر از {1} کاراکتر باشد")]
 		[MaxLength(100, ErrorMessage = "{0} نمیتواند بیشتر از {1} کاراکتر باشد")]
 		public string Percent { get; set; }
-	}
+
+        public DateTime CreateDate { get; set; }
+    }
 }

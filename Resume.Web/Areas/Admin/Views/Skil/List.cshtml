@@ -1,10 +1,9 @@
 ﻿@using Resume.Bussines.Extensions
-@using Resume.Bussines.Convertor
-@using Resume.DAL.ViewModels.Experience
-@model FilterExperienceViewModel
+@using Resume.DAL.ViewModels.Skil
+@model FilterSkilViewModel
 
 @{
-    ViewData["Title"] = "لیست تجربه کاری من";
+    ViewData["Title"] = "لیست مهارت ها";
 }
 
 <div class="row clearfix">
@@ -16,7 +15,7 @@
                 </h2>
             </div>
             <div class="body">
-                <form asp-area="Admin" asp-controller="Experience" asp-action="List" method="get" id="filter-search">
+                <form asp-area="Admin" asp-controller="Skil" asp-action="List" method="get" id="filter-search">
                     <input type="hidden" asp-for="PageId" />
                     <div class="row clearfix">
                         <div class="col-sm-12  col-md-4">
@@ -27,27 +26,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-12  col-md-4">
-                            <div class="form-group form-float">
-                                <div class="form-line">
-                                    <input type="text" asp-for="StartDate" class="form-control">
-                                    <label asp-for="StartDate" class="form-label"></label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-12  col-md-4">
-                            <div class="form-group form-float">
-                                <div class="form-line">
-                                    <input type="text" asp-for="EndDate" class="form-control">
-                                    <label asp-for="EndDate" class="form-label"></label>
-                                </div>
-                            </div>
-                        </div>
                         <div class="col-sm-12">
                             <button class="btn btn-success">جستجو</button>
                             @if (Context.Request.QueryString.HasValue)
                             {
-                                <a asp-area="admin" asp-controller="Experience" asp-action="List" class="btn btn-raised btn-primary btn-round waves-effect">حذف فیلتر</a>
+                                <a asp-area="admin" asp-controller="Skil" asp-action="List" class="btn btn-raised btn-primary btn-round waves-effect">حذف فیلتر</a>
                             }
                         </div>
                     </div>
@@ -70,34 +53,21 @@
                             <tr>
                                 <th>آیدی</th>
                                 <th>عنوان</th>
-                                <th>توضیحات</th>
-                                <th>تاریخ شروع</th>
-                                <th>تاریخ پایان</th>
+                                <th>درصد</th>
                                 <th>تاریخ ثبت</th>
                                 <th>عملیات</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach (var experience in Model.Entities)
+                            @foreach (var skil in Model.Entities)
                             {
                                 <tr>
-                                    <th scope="row">@experience.Id</th>
-                                    <td>@experience.Title</td>
-                                    <td>@experience.Description</td>
-                                    <td>@experience.StartDate.ToShams()</td>
+                                    <th scope="row">@skil.Id</th>
+                                    <td>@skil.Title</td>
+                                    <td>@skil.Percent</td>
+                                    <td>@skil.CreateDate.ToShamsi()</td>
                                     <td>
-                                        @if (@experience.EndDate.HasValue)
-                                        {
-                                            @experience.EndDate.Value.ToShams()
-                                        }
-                                        else
-                                        {
-                                            <div class="badge col-green">در حال ادامه کار هستم</div>
-                                        }
-                                    </td>
-                                    <td>@experience.CreateDate.ToShamsi()</td>
-                                    <td>
-                                        <a asp-area="Admin" asp-controller="Experience" asp-action="Update" asp-route-id="@experience.Id" class="text-warning">
+                                        <a asp-area="Admin" asp-controller="Skil" asp-action="Update" asp-route-id="@skil.Id" class="text-warning">
                                             <i class="fa fa-pen"></i>
                                         </a>
                                     </td>
@@ -115,6 +85,4 @@
         </div>
     </div>
 </div>
-
-
 

@@ -27,6 +27,8 @@ namespace Resume.Web.Configuration
 
             services.AddScoped<ICustomerLogoRepository, CustomerLogoRepository>();
 
+            services.AddScoped<ISkilRepository, SkilRepository>();
+
             #endregion
 
             #region Services
@@ -46,6 +48,8 @@ namespace Resume.Web.Configuration
             services.AddScoped<ICustomerFeedBackService, CustomerFeedBackService>();
 
             services.AddScoped<ICustomerLogoService, CustomerLogoService>();
+
+            services.AddScoped<ISkilService, SkilService>();
 
             services.AddScoped<IEmailService, EmailService>();
 
