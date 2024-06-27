@@ -6,6 +6,7 @@ using Resume.DAL.Models.CustomerFeedBack;
 using Resume.DAL.Models.CustomerLogo;
 using Resume.DAL.Models.Education;
 using Resume.DAL.Models.Experience;
+using Resume.DAL.Models.Skill;
 using Resume.DAL.Models.User;
 using System;
 using System.Collections.Generic;
@@ -43,6 +44,8 @@ namespace Resume.DAL.Context
         public DbSet<CustomerFeedBack> CustomerFeedBacks { get; set; }
 
         public DbSet<CustomerLogo> CustomerLogos { get; set; }
+
+        public DbSet<Skill> Skills { get; set; }
 
         #endregion
 
