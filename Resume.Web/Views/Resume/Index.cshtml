@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "رزومه";
 }
 
@@ -16,43 +15,6 @@
 	</div>
 
 	<!-- Skills -->
-	<div class="row">
-		<div class="col-12">
-			<h2 class="title title--h3">مهارت های من</h2>
-			<div class="box box__border">
-				<!-- Progress -->
-				<div class="progress">
-					<div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%; z-index: 2;">
-						<div class="progress-text"><span>طراحی وب</span><span>80%</span></div>
-					</div>
-					<div class="progress-text"><span>طراحی وب</span></div>
-				</div>
-
-				<!-- Progress -->
-				<div class="progress">
-					<div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%; z-index: 2;">
-						<div class="progress-text"><span>طراحی گرافیک</span><span>75%</span></div>
-					</div>
-					<div class="progress-text"><span>طراحی گرافیک</span></div>
-				</div>
-
-				<!-- Progress -->
-				<div class="progress">
-					<div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%; z-index: 2;">
-						<div class="progress-text"><span>فتوشاپ</span><span>90%</span></div>
-					</div>
-					<div class="progress-text"><span>فتوشاپ</span></div>
-				</div>
-
-				<!-- Progress -->
-				<div class="progress">
-					<div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%; z-index: 2;">
-						<div class="progress-text"><span>الستریتور</span><span>50%</span></div>
-					</div>
-					<div class="progress-text"><span>الستریتور</span></div>
-				</div>
-			</div>
-		</div>
-	</div>
+	@await Component.InvokeAsync("Skil")
 </div>
 
