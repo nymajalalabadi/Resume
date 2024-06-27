@@ -45,6 +45,10 @@
                         </div>
                         <div class="col-sm-12">
                             <button class="btn btn-success">جستجو</button>
+                            @if (Context.Request.QueryString.HasValue)
+                            {
+                                <a asp-area="admin" asp-controller="Education" asp-action="List" class="btn btn-raised btn-primary btn-round waves-effect">حذف فیلتر</a>
+                            }
                         </div>
                     </div>
                 </form>
